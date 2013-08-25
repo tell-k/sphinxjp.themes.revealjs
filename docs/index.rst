@@ -161,7 +161,7 @@ sphinxjp.themes.revealjs
 
 
  .. revealjs:: Image Backgrounds
-  :data-background: images/arrow.png
+  :data-background: _images/arrow.png
 
   .. rv_code::
 
@@ -169,7 +169,7 @@ sphinxjp.themes.revealjs
     :data-background: image.png;
 
  .. revealjs:: Repeated Image Backgrounds
-  :data-background: images/arrow.png
+  :data-background: _images/arrow.png
   :data-background-repeat: repeat
   :data-background-size: 100px
 
