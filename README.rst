@@ -32,7 +32,7 @@ Convert Usage
 setup conf.py with::
 
     extensions = ['sphinxjp.themecore']
-    html_theme = 'basicstrap'
+    html_theme = 'revealjs'
     html_use_index = False
 
 and run::
@@ -141,7 +141,7 @@ Using
 License
 =======
 
-* sphinxjp.themes.basicstrap Licensed under the `MIT license <http://www.opensource.org/licenses/mit-license.php>`_ .
+* sphinxjp.themes.revealjs Licensed under the `MIT license <http://www.opensource.org/licenses/mit-license.php>`_ .
 * `reveal.js is licensed under the MIT licence <https://github.com/hakimel/reveal.js/blob/master/LICENSE>`_.
 
 See the LICENSE file for specific terms.
