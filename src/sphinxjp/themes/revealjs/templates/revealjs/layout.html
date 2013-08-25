@@ -1,0 +1,138 @@
+{#
+
+revealjs/layout.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Master layout template for Sphinx themes.
+
+:copyright: tell-k <ffk2005@gmail.com>
+:license: MIT License
+
+#}
+{%- block doctype -%}
+<!DOCTYPE html>
+{%- endblock %}
+{%- set url_root = pathto('', 1) %}
+{# XXX necessary? #}
+{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
+{%- if not embedded and docstitle %}
+{%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
+{%- else %}
+{%- set titlesuffix = "" %}
+{%- endif %}
+
+{%- macro script() %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{{ pathto('_static/lib/js/head.min.js', 1) }}"></script>
+<script src="{{ pathto('_static/js/reveal.js', 1) }}"></script>
+{%- endmacro %}
+
+{%- macro css() %}
+<link rel="stylesheet" href="{{ pathto('_static/css/reveal.min.css', 1) }}">
+<link rel="stylesheet" href="{{ pathto('_static/css/theme/default.css', 1) }}" id="theme">
+<link rel="stylesheet" href="{{ pathto('_static/lib/css/zenburn.css', 1) }}">
+<link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+{%- for cssfile in css_files %}
+<link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+{%- endfor %}
+{%- endmacro %}
+
+<html lang="{{ theme_lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    {%- block htmltitle %}
+    <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+    {%- endblock %}
+
+    {{ metatags }}
+
+    {{ css() }}
+
+    {%- if not embedded %}
+      {%- if favicon %}
+      <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+      {%- endif %}
+    {%- endif %}
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write('<link rel="stylesheet" href="{{ pathto('_static/css/print/', 1) }}' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="{{ pathto('_static/lib/js/html5shiv.js', 1) }}"></script>
+    <![endif]-->
+
+    {%- for scriptfile in script_files %}
+    {%- if scriptfile != '_static/jquery.js' and scriptfile != '_static/underscore.js' and scriptfile != '_static/doctools.js'%}
+      <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+    {%- endif %}
+    {%- endfor %}
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        {% block body %}{% endblock %}
+      </div>
+    </div>
+    {{ script() }}
+    <script>
+
+      // change DOM for reveal.js
+      $("div.section h1").remove();
+      var content = $("div.section").html();
+      $("div.section").remove();
+      $("div.slides").html(content);
+
+      Reveal.initialize({
+        width: {{ theme_width }},
+        height: {{ theme_height }},
+
+        margin: {{ theme_margin }},
+
+        minScale: {{ theme_min_scale }},
+        maxScale: {{ theme_max_scale }},
+
+        controls: {{ theme_controls|lower }},
+        progress: {{ theme_progress|lower }},
+        history: {{ theme_history|lower }},
+        center: {{ theme_center|lower }},
+
+        keyboard : {{ theme_keyboard|lower }},
+        overview: {{ theme_overview|lower }},
+        touch: {{ theme_touch|lower }},
+        loop: {{ theme_loop|lower }},
+        rtl: {{ theme_rtl|lower }},
+        fragments: {{ theme_fragments|lower }},
+
+        autoSlide: {{ theme_auto_slide|lower }},
+        mouseWheel: {{ theme_mouse_wheel|lower }},
+        rollingLinks: {{ theme_rolling_links|lower }},
+        previewLinks: {{ theme_preview_links|lower }},
+
+        transitionSpeed: "{{ theme_transition_speed }}",
+        backgroundTransition: "{{ theme_background_transition }}",
+
+        theme: Reveal.getQueryHash().theme || "{{ theme_theme }}", // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || "{{ theme_transition }}", // default/cube/page/concave/zoom/linear/fade/none
+
+        dependencies: [
+        { src: '{{ pathto('_static/lib/js/classList.js', 1) }}', condition: function() { return !document.body.classList; } },
+        { src: '{{ pathto('_static/plugin/markdown/marked.js', 1) }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '{{ pathto('_static/plugin/markdown/markdown.js', 1) }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '{{ pathto('_static/plugin/highlight/highlight.js', 1) }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '{{ pathto('_static/plugin/zoom-js/zoom.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } },
+        { src: '{{ pathto('_static/plugin/notes/notes.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } }
+
+        //{ src: '{{ pathto('_static/plugin/search/search.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } },
+        //{ src: '{{ pathto('_static/plugin/remotes/remotes.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
