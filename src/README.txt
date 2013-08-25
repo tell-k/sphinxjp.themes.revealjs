@@ -1,3 +1,4 @@
+
 reveal.js style presentation theme for Sphinx.
 
 Output Sample
@@ -58,15 +59,15 @@ Slides can be nested inside of other slides,
 
      .. revealjs:: Vertical Slide1
 
-      vertial slide1 
+      vertical slide1 
 
      .. revealjs:: Vertical Slide2
 
-      vertial slide2
+      vertical slide2
 
      .. revealjs:: Vertical Slide3
 
-      vertial slide3
+      vertical slide3
 
 
 rv_code
@@ -141,3 +142,4 @@ License
 * `reveal.js is licensed under the MIT licence <https://github.com/hakimel/reveal.js/blob/master/LICENSE>`_.
 
 See the LICENSE file for specific terms.
+

@@ -1,3 +1,7 @@
+============================================
+sphinxjp.themes.revealjs 0.1.0
+============================================
+
 reveal.js style presentation theme for Sphinx.
 
 Output Sample
@@ -58,15 +62,15 @@ Slides can be nested inside of other slides,
 
      .. revealjs:: Vertical Slide1
 
-      vertial slide1 
+      vertical slide1 
 
      .. revealjs:: Vertical Slide2
 
-      vertial slide2
+      vertical slide2
 
      .. revealjs:: Vertical Slide3
 
-      vertial slide3
+      vertical slide3
 
 
 rv_code
