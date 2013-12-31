@@ -216,19 +216,18 @@ def visit_revealjs(self, node):
     subtitle_heading = node.get('subtitle-heading', 'h3')
     if node.get("data-markdown") is not None:
 
-        title_base = u"%(heading)s %(title)s \n"
         title_text = None
         if title:
-            title_text = title_base % dict(
+            title_text = u"%(heading)s %(title)s \n" % dict(
                 heading=heading_mapping.get(title_heading),
-                title=title,
+                title=title
             )
 
         subtitle_text = None
         if subtitle:
-            subtitle_text = title_base % dict(
+            subtitle_text = u"%(heading)s %(title)s \n" % dict(
                 heading=heading_mapping.get(subtitle_heading),
-                title=subtitle,
+                title=subtitle
             )
     else:
         title_base = u"<%(heading)s>%(title)s</%(heading)s>\n"
