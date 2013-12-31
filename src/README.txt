@@ -1,8 +1,8 @@
 
 reveal.js style presentation theme for Sphinx.
 
-.. image:: https://drone.io/github.com/tell-k/sphinxjp.themes.basicstrap/status.png
-   :target: https://drone.io/github.com/tell-k/sphinxjp.themes.basicstrap
+.. image:: https://drone.io/github.com/tell-k/sphinxjp.themes.revealjs/status.png
+   :target: https://drone.io/github.com/tell-k/sphinxjp.themes.revealjs
 
 Output Sample
 =============
