@@ -12,7 +12,7 @@ version = '0.1.1'
 
 # -- Options for HTML output ---------------------------------------------------
 
-extensions = ['sphinxjp.themecore']
+extensions = ['sphinxjp.themes.revealjs']
 html_theme = 'revealjs'
 html_use_index = False
 
