@@ -12,6 +12,8 @@ from docutils.parsers.rst.roles import set_classes
 
 from sphinx.util.compat import Directive
 
+from sphinxjp.themes.revealjs import compat
+
 __docformat__ = 'reStrructuredText'
 
 
@@ -216,21 +218,22 @@ def visit_revealjs(self, node):
     subtitle_heading = node.get('subtitle-heading', 'h3')
     if node.get("data-markdown") is not None:
 
+        title_base = compat.unicode("%(heading)s %(title)s \n")
         title_text = None
         if title:
-            title_text = u"%(heading)s %(title)s \n" % dict(
+            title_text = title_base % dict(
                 heading=heading_mapping.get(title_heading),
                 title=title
             )
 
         subtitle_text = None
         if subtitle:
-            subtitle_text = u"%(heading)s %(title)s \n" % dict(
+            subtitle_text = title_base  % dict(
                 heading=heading_mapping.get(subtitle_heading),
                 title=subtitle
             )
     else:
-        title_base = u"<%(heading)s>%(title)s</%(heading)s>\n"
+        title_base = compat.unicode("<%(heading)s>%(title)s</%(heading)s>\n")
 
         title_text = None
         if title:
@@ -246,7 +249,7 @@ def visit_revealjs(self, node):
 
     if node.get("data-markdown") is not None:
         self.body.append(self.starttag(node, 'section', **section_attr))
-        if node.get("data-markdown") == u"":
+        if node.get("data-markdown") == compat.unicode(""):
             self.body.append("<script type='text/template'>\n")
             if title_text:
                 self.body.append(title_text)
