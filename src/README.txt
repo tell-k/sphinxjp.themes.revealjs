@@ -1,6 +1,9 @@
 
 reveal.js style presentation theme for Sphinx.
 
+.. image:: https://drone.io/github.com/tell-k/sphinxjp.themes.basicstrap/status.png
+   :target: https://drone.io/github.com/tell-k/sphinxjp.themes.basicstrap
+
 Output Sample
 =============
 :output: http://packages.python.org/sphinxjp.themes.revealjs/
@@ -48,7 +51,8 @@ This directive crate a slide section for reveal.js.
 
     .. revealjs:: Heads Up
 
-     reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with support for CSS 3D transforms to see it in its full glory.
+     reveal.js is a framework for easily creating beautiful presentations using HTML.
+     You'll need a browser with support for CSS 3D transforms to see it in its full glory.
 
 
 Slides can be nested inside of other slides,
@@ -117,11 +121,13 @@ This directive can be used when creating some notes for presenter. They'll be hi
 
     .. revealjs:: Heads Up
 
-     reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with support for CSS 3D transforms to see it in its full glory.
+     reveal.js is a framework for easily creating beautiful presentations using HTML.
+     You'll need a browser with support for CSS 3D transforms to see it in its full glory.
 
      .. rv_note::
 
-      Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+      Oh hey, these are some notes. They'll be hidden in your presentation, 
+      but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 
 
 Requirement

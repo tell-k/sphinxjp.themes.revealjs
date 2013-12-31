@@ -1,8 +1,11 @@
 ============================================
-sphinxjp.themes.revealjs 0.1.0
+sphinxjp.themes.revealjs 0.1.1
 ============================================
 
 reveal.js style presentation theme for Sphinx.
+
+.. image:: https://drone.io/github.com/tell-k/sphinxjp.themes.basicstrap/status.png
+   :target: https://drone.io/github.com/tell-k/sphinxjp.themes.basicstrap
 
 Output Sample
 =============

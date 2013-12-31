@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 import os, sys
 
-version = '0.1.0'
+version = '0.1.1'
 long_description = '\n'.join([
         open(os.path.join("src", "README.txt")).read(),
         open(os.path.join("src", "AUTHORS.txt")).read(),
@@ -13,6 +13,8 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 3",
     "Topic :: Software Development",
     "Topic :: Software Development :: Documentation",
     "Topic :: Text Processing :: Markup",
@@ -36,16 +38,17 @@ setup(
     include_package_data=True,
     install_requires=[
         'setuptools',
-        'docutils',
-        'Sphinx',
-        'sphinxjp.themecore',
+        'sphinx',
     ],
+    test_suite='nose.collector',
+    tests_require=['Nose','pep8'],
+    extras_require=dict(test=['Nose','pep8']),
     entry_points="""
         [sphinx_themes]
         path = sphinxjp.themes.revealjs:template_path
 
         [sphinx_directives]
-        setup = sphinxjp.themes.revealjs:setup_directives
+        setup = sphinxjp.themes.revealjs:setup
     """,
     zip_safe=False,
 )

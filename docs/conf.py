@@ -8,7 +8,7 @@ master_doc = 'index'
 project = u'sphinx theme for reveal.js'
 copyright = u'2013, tell-k'
 
-version = '0.1.0'
+version = '0.1.1'
 
 # -- Options for HTML output ---------------------------------------------------
 
@@ -16,7 +16,7 @@ extensions = ['sphinxjp.themecore']
 html_theme = 'revealjs'
 html_use_index = False
 
-# -- HTML theme options for `dotted` style -------------------------------------
+# -- HTML theme options for `revealjs` style -------------------------------------
 
 html_theme_options = {
     # Set the lang attribute of the html tag. Defaults to "ja"
@@ -89,4 +89,8 @@ html_theme_options = {
 
     # Transition style for full page slide backgrounds (default/linear)
     "background_transition": "default",
+
+    # Enable plguin javascript for reveal.js
+    "plugin_list": ["search/search.js", "remotes/remotes.js"],
+
 }

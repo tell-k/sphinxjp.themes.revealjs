@@ -127,10 +127,10 @@ Master layout template for Sphinx themes.
         { src: '{{ pathto('_static/plugin/markdown/markdown.js', 1) }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
         { src: '{{ pathto('_static/plugin/highlight/highlight.js', 1) }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
         { src: '{{ pathto('_static/plugin/zoom-js/zoom.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } },
+        {%- for plugin in theme_plugin_list %}
+        { src: '{{ pathto('_static/plugin/' + plugin, 1) }}', async: true, condition: function() { return !!document.body.classList; } },
+        {% endfor %}
         { src: '{{ pathto('_static/plugin/notes/notes.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } }
-
-        //{ src: '{{ pathto('_static/plugin/search/search.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } },
-        //{ src: '{{ pathto('_static/plugin/remotes/remotes.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
     </script>
