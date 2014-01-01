@@ -132,9 +132,8 @@ This directive can be used when creating some notes for presenter. They'll be hi
 
 Requirement
 ===========
-* Python 2.7 or later (not support 3.x)
-* Sphinx 1.1.x or later.
-* sphinxjp.themecore 0.1.3 or later
+* Python 2.7 or later.
+* Sphinx 1.2.x or later.
 
 Using
 ===========
