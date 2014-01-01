@@ -1,7 +1,7 @@
 History
 =======
 
-0.1.1 (Dec 31, 2013)
+0.1.1 (Jan 1, 2014)
 ---------------------
 * add html_theme_options['plugin_list'].
 * add tox test.
