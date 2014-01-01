@@ -1,20 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+    sphinxjp.themes.revealjs.compat
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    :author: tell-k <ffk2005@gmail.com>
+    :copyright: tell-k. All Rights Reserved.
+"""
 import sys
-
-PY2 = int(sys.version[0]) == 2
-
-if PY2:
-    from itertools import imap
-    text_type = unicode
-    binary_type = str
-    string_types = (str, unicode)
-    unicode = unicode
-    basestring = basestring
-    imap = imap
-else:
-    text_type = str
-    binary_type = bytes
-    string_types = (str,)
-    unicode = str
-    basestring = (str, bytes)
-    imap = map
+text = str if sys.version_info >= (3, 0) else unicode

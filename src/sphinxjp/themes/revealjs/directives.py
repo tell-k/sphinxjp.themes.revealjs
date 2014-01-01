@@ -188,7 +188,7 @@ class RvCodeDirective(Directive):
 def visit_revealjs(self, node):
     """ build start tag for revealjs """
     section_attr = {}
-    heading_mapping = {"h1": "#", "h2": "##", "h3": "###",
+    markdown_headings = {"h1": "#", "h2": "##", "h3": "###",
                        "h4": "####", "h5": "#####", "h6": "######"}
 
     if node.get("id"):
@@ -218,22 +218,22 @@ def visit_revealjs(self, node):
     subtitle_heading = node.get('subtitle-heading', 'h3')
     if node.get("data-markdown") is not None:
 
-        title_base = compat.unicode("%(heading)s %(title)s \n")
+        title_base = compat.text("%(heading)s %(title)s \n")
         title_text = None
         if title:
             title_text = title_base % dict(
-                heading=heading_mapping.get(title_heading),
+                heading=markdown_headings.get(title_heading),
                 title=title
             )
 
         subtitle_text = None
         if subtitle:
             subtitle_text = title_base  % dict(
-                heading=heading_mapping.get(subtitle_heading),
+                heading=markdown_headings.get(subtitle_heading),
                 title=subtitle
             )
     else:
-        title_base = compat.unicode("<%(heading)s>%(title)s</%(heading)s>\n")
+        title_base = compat.text("<%(heading)s>%(title)s</%(heading)s>\n")
 
         title_text = None
         if title:
@@ -249,7 +249,7 @@ def visit_revealjs(self, node):
 
     if node.get("data-markdown") is not None:
         self.body.append(self.starttag(node, 'section', **section_attr))
-        if node.get("data-markdown") == compat.unicode(""):
+        if node.get("data-markdown") == compat.text(""):
             self.body.append("<script type='text/template'>\n")
             if title_text:
                 self.body.append(title_text)
