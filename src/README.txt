@@ -2,9 +2,6 @@ reveal.js style presentation theme for Sphinx.
 
 |travis| |downloads| |version| |license|
 
-.. image:: https://drone.io/github.com/tell-k/sphinxjp.themes.revealjs/status.png
-   :target: https://drone.io/github.com/tell-k/sphinxjp.themes.revealjs
-
 Output Sample
 =============
 :output: http://packages.python.org/sphinxjp.themes.revealjs/
