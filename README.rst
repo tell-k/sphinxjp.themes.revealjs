@@ -4,8 +4,8 @@ sphinxjp.themes.revealjs 0.1.1
 
 reveal.js style presentation theme for Sphinx.
 
-.. image:: https://drone.io/github.com/tell-k/sphinxjp.themes.revealjs/status.png
-   :target: https://drone.io/github.com/tell-k/sphinxjp.themes.revealjs
+|travis| |downloads| |version| |license|
+
 
 Output Sample
 =============
@@ -148,3 +148,22 @@ License
 
 See the LICENSE file for specific terms.
 
+.. |travis| image:: https://travis-ci.org/tell-k/sphinxjp.themes.revealjs.svg?branch=master
+    :target: https://travis-ci.org/tell-k/sphinxjp.themes.revealjs
+
+
+.. |coveralls| image:: https://coveralls.io/repos/tell-k/sphinxjp.themes.revealjs
+    :target: https://coveralls.io/r/tell-k/sphinxjp.themes.revealjs
+    :alt: coveralls.io
+
+.. |downloads| image:: https://pypip.in/d/sphinxjp.themes.revealjs/badge.png
+    :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
+    :alt: downloads
+
+.. |version| image:: https://pypip.in/v/sphinxjp.themes.revealjs/badge.png
+    :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
+    :alt: latest version
+
+.. |license| image:: https://pypip.in/license/sphinxjp.themes.revealjs/badge.png
+    :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
+    :alt: license
