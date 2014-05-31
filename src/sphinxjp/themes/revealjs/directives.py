@@ -189,7 +189,7 @@ def visit_revealjs(self, node):
     """ build start tag for revealjs """
     section_attr = {}
     markdown_headings = {"h1": "#", "h2": "##", "h3": "###",
-                       "h4": "####", "h5": "#####", "h6": "######"}
+                         "h4": "####", "h5": "#####", "h6": "######"}
 
     if node.get("id"):
         section_attr.update({"ids": [node.get("id")]})
@@ -228,7 +228,7 @@ def visit_revealjs(self, node):
 
         subtitle_text = None
         if subtitle:
-            subtitle_text = title_base  % dict(
+            subtitle_text = title_base % dict(
                 heading=markdown_headings.get(subtitle_heading),
                 title=subtitle
             )

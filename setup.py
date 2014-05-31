@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
-import os, sys
+import os
 
 version = '0.1.1'
 long_description = '\n'.join([
-        open(os.path.join("src", "README.txt")).read(),
-        open(os.path.join("src", "AUTHORS.txt")).read(),
-        open(os.path.join("src", "HISTORY.txt")).read(),
-        ])
+    open(os.path.join("src", "README.txt")).read(),
+    open(os.path.join("src", "AUTHORS.txt")).read(),
+    open(os.path.join("src", "HISTORY.txt")).read(),
+])
 
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -20,10 +20,12 @@ classifiers = [
     "Topic :: Text Processing :: Markup",
 ]
 
+description = 'A sphinx theme for generate reveal.js presentation. #sphinxjp',
+
 setup(
     name='sphinxjp.themes.revealjs',
     version=version,
-    description='A sphinx theme for generate reveal.js presentation. #sphinxjp',
+    description=description,
     long_description=long_description,
     classifiers=classifiers,
     keywords=['sphinx', 'reStructuredText', 'theme', 'presentation'],
@@ -41,8 +43,8 @@ setup(
         'sphinx',
     ],
     test_suite='nose.collector',
-    tests_require=['Nose','flake8'],
-    extras_require=dict(test=['Nose','flake8']),
+    tests_require=['Nose', 'flake8'],
+    extras_require=dict(test=['Nose', 'flake8']),
     entry_points="""
         [sphinx_themes]
         path = sphinxjp.themes.revealjs:template_path

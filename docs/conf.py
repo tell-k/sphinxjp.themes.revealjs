@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# -- General configuration -----------------------------------------------------
+# -- General configuration ----------------------------------------
 
 source_suffix = '.rst'
 master_doc = 'index'
@@ -10,13 +10,13 @@ copyright = u'2013, tell-k'
 
 version = '0.1.1'
 
-# -- Options for HTML output ---------------------------------------------------
+# -- Options for HTML output --------------------------------------
 
 extensions = ['sphinxjp.themes.revealjs']
 html_theme = 'revealjs'
 html_use_index = False
 
-# -- HTML theme options for `revealjs` style -------------------------------------
+# -- HTML theme options for `revealjs` style ---------------------
 
 html_theme_options = {
     # Set the lang attribute of the html tag. Defaults to "ja"
