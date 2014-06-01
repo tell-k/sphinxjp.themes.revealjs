@@ -43,8 +43,8 @@ setup(
         'sphinx',
     ],
     test_suite='nose.collector',
-    tests_require=['nose','flake8', 'mock', 'coverage'],
-    extras_require=dict(test=['nose','flake8', 'mock', 'coverage']),
+    tests_require=['nose', 'flake8', 'mock', 'coverage'],
+    extras_require=dict(test=['nose', 'flake8', 'mock', 'coverage']),
     entry_points="""
         [sphinx_themes]
         path = sphinxjp.themes.revealjs:template_path

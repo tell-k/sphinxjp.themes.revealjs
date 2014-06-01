@@ -7,4 +7,4 @@
     :copyright: tell-k. All Rights Reserved.
 """
 import sys
-text = str if sys.version_info >= (3, 0) else unicode
+text = str if sys.version_info >= (3, 0) else unicode  # NOQA

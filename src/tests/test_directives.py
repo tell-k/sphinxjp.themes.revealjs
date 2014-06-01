@@ -47,7 +47,6 @@ class HeadingTest(unittest.TestCase):
         self.assertRaises(ValueError, self._callFUT, "unknown")
 
 
-
 class RevealjsDirectiveTest(unittest.TestCase):
 
     def _getTargetClass(self):
