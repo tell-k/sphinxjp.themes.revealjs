@@ -493,10 +493,11 @@ class VisitRvNoteTest(unittest.TestCase):
                 self.first_last = False
 
             def starttag(self, node, tag, **kwargs):
+                class_name = kwargs.pop('class')
                 try:
-                    return '<{} class="{}">'.format(tag, kwargs.pop('class'))
+                    return '<{} class="{}">'.format(tag, class_name)
                 except ValueError:
-                    return '<%s class="%s">' % (tag, kwargs.pop('class'))
+                    return '<%s class="%s">' % (tag, class_name)
 
             def set_first_last(self, node):
                 self.first_last = True
