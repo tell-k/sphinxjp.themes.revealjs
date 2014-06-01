@@ -44,8 +44,8 @@ class HeadingTest(unittest.TestCase):
         self.assertEqual("h6", self._callFUT("h6"))
 
     def test_value_error(self):
-        with self.assertRaises(ValueError):
-            self._callFUT("unknown")
+        self.assertRaises(ValueError, self._callFUT, "unknown")
+
 
 
 class RevealjsDirectiveTest(unittest.TestCase):
@@ -323,7 +323,10 @@ class VisitRvCodeTest(unittest.TestCase):
                 self.body = body
 
             def starttag(self, node, tag):
-                return "<{}>".format(tag)
+                try:
+                    return "<{}>".format(tag)
+                except ValueError:
+                    return "<%s>" % tag
 
         return DummySelf(DummyBody())
 
@@ -409,7 +412,10 @@ class VisitRvSmallTest(unittest.TestCase):
                 self.first_last = False
 
             def starttag(self, node, tag):
-                return "<{}>".format(tag)
+                try:
+                    return "<{}>".format(tag)
+                except ValueError:
+                    return "<%s>" % tag
 
             def set_first_last(self, node):
                 self.first_last = True
@@ -487,7 +493,10 @@ class VisitRvNoteTest(unittest.TestCase):
                 self.first_last = False
 
             def starttag(self, node, tag, **kwargs):
-                return '<{} class="{}">'.format(tag, kwargs.pop('class'))
+                try:
+                    return '<{} class="{}">'.format(tag, kwargs.pop('class'))
+                except ValueError:
+                    return '<%s class="%s">' % (tag, kwargs.pop('class'))
 
             def set_first_last(self, node):
                 self.first_last = True
