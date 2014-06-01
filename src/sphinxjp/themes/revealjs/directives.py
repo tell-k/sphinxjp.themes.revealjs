@@ -18,19 +18,19 @@ __docformat__ = 'reStrructuredText'
 
 
 class revealjs(nodes.General, nodes.Element):
-    pass
+    """ node for revealjs """
 
 
 class rv_code(nodes.General, nodes.Element):
-    pass
+    """ node for revealjs code section """
 
 
 class rv_small(nodes.General, nodes.Element):
-    pass
+    """ node for revealjs small text section """
 
 
 class rv_note(nodes.General, nodes.Element):
-    pass
+    """ node for revealjs presentation note """
 
 
 def heading(argument):
@@ -80,10 +80,7 @@ class RevealjsDirective(Directive):
             self.state.nested_parse(self.content, self.content_offset, node)
 
         if self.arguments:
-            node['title'] = " ".join(self.arguments)
-
-        if 'class' in self.options:
-            node['classes'].append(self.options['class'])
+            node['title'] = "".join(self.arguments)
 
         node['noheading'] = ('noheading' in self.options)
 
@@ -130,8 +127,6 @@ class RvSmallDirective(Directive):
         node = self.node_class(text, **self.options)
         self.add_name(node)
         self.state.nested_parse(self.content, self.content_offset, node)
-        if 'class' in self.options:
-            node['classes'].append(self.options['class'])
         return [node]
 
 
@@ -151,15 +146,12 @@ class RvNoteDirective(Directive):
 
     def run(self):
         """ build rv_note node """
-
         set_classes(self.options)
         self.assert_has_content()
         text = '\n'.join(self.content)
         node = self.node_class(text, **self.options)
         self.add_name(node)
         self.state.nested_parse(self.content, self.content_offset, node)
-        if 'class' in self.options:
-            node['classes'].append(self.options['class'])
         return [node]
 
 
@@ -172,13 +164,11 @@ class RvCodeDirective(Directive):
     required_arguments = 0
     optional_arguments = 0
     final_argument_whitespace = False
-    option_spec = {
-    }
+    option_spec = {}
     node_class = rv_code
 
     def run(self):
         """ build rv_code node """
-
         set_classes(self.options)
         self.assert_has_content()
         node = self.node_class('\n'.join(self.content), **self.options)

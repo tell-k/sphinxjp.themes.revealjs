@@ -1,6 +1,6 @@
 reveal.js style presentation theme for Sphinx.
 
-|travis| |downloads| |version| |license|
+|travis| |coveralls| |downloads| |version| |license|
 
 Output Sample
 =============
@@ -150,8 +150,8 @@ See the LICENSE file for specific terms.
     :target: https://travis-ci.org/tell-k/sphinxjp.themes.revealjs
 
 
-.. |coveralls| image:: https://coveralls.io/repos/tell-k/sphinxjp.themes.revealjs
-    :target: https://coveralls.io/r/tell-k/sphinxjp.themes.revealjs
+.. |coveralls| image:: https://coveralls.io/repos/tell-k/sphinxjp.themes.revealjs/badge.png
+    :target: https://coveralls.io/r/tell-k/sphinxjp.themes.revealjs/
     :alt: coveralls.io
 
 .. |downloads| image:: https://pypip.in/d/sphinxjp.themes.revealjs/badge.png

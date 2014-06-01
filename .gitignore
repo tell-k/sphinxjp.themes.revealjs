@@ -9,3 +9,4 @@ eggs
 parts
 *.egg-info
 *.*~
+.coverage

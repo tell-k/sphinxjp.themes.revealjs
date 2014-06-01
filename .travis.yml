@@ -1,12 +1,17 @@
 language: python
-python: 2.7
+python: 3.4
 env:
-  - TOX_ENV=py26
-  - TOX_ENV=py27
-  - TOX_ENV=py32
-  - TOX_ENV=py33
-  - TOX_ENV=py34
+  matrix:
+   - TOXENV=py26
+   - TOXENV=py27
+   - TOXENV=py32
+   - TOXENV=py33
+   - TOXENV=py34
+   - TOXENV=pypy
+   - TOXENV=flake8
 install:
-  - pip install detox
-script:
-  - detox -e $TOX_ENV
+  - pip install tox
+  - if test "$TOXENV" = py34 ; then pip install coveralls ; fi
+script: tox
+after_script:
+  - if test "$TOXENV" = py34 ; then coveralls ; fi
