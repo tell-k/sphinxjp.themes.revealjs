@@ -54,7 +54,6 @@ class RevealjsDirective(Directive):
         'subtitle': directives.unchanged,
         'subtitle-heading': directives.unchanged,
         'data-markdown': directives.unchanged,
-        'data_state': directives.unchanged,
         'data-transition': directives.unchanged,
         'data-background': directives.unchanged,
         'data-background-repeat': directives.unchanged,
@@ -224,7 +223,6 @@ def visit_revealjs(self, node):
             )
     else:
         title_base = compat.text("<%(heading)s>%(title)s</%(heading)s>\n")
-
         title_text = None
         if title:
             title_text = title_base % dict(

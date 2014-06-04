@@ -239,32 +239,108 @@ class RvCodeDirectiveTest(unittest.TestCase):
         nodes = directive.run()
         self.assertEqual(1, len(nodes))
 
-# TODO テストコード
-# class VisitRevealjsTest(unittest.TestCase):
-#
-#    def _getTarget(self):
-#        from sphinxjp.themes.revealjs.directives import depart_revealjs
-#        return depart_revealjs
-#
-#    def _callFUT(self, *args, **kwargs):
-#        return self._getTarget()(*args, **kwargs)
-#
-#    def _getDummySelf(self, *args, **kwargs):
-#        class DummyBody(object):
-#            content = []
-#
-#            def append(self, content):
-#                self.content.append(content)
-#
-#        class DummySelf(object):
-#            def __init__(self, body):
-#                self.body = body
-#        return DummySelf(DummyBody())
-#
-#    def test_it(self):
-#        dummyself = self._getDummySelf()
-#        self._callFUT(dummyself, None)
-#        self.assertEqual('</section>\n', dummyself.body.content[0])
+
+class VisitRevealjsTest(unittest.TestCase):
+
+    def _getTarget(self):
+        from sphinxjp.themes.revealjs.directives import visit_revealjs
+        return visit_revealjs
+
+    def _callFUT(self, *args, **kwargs):
+        return self._getTarget()(*args, **kwargs)
+
+    def _getDummyNode(self, *args, **kwargs):
+
+        class DummyNode(object):
+            attrs = {
+                'id': "id",
+                'title': 'title',
+                'noheading': False,
+                'title-heading': 'h1',
+                'subtitle': 'subtitle',
+                'subtitle-heading': 'h2',
+                'data-markdown': None,
+                'data-transition': None,
+                'data-background': None,
+                'data-background-repeat': None,
+                'data-background-size': None,
+                'data-background-transition': None,
+                'data-state': None,
+                'data-separator': None,
+                'data-vertical': None,
+            }
+
+            def __init__(self, **kwargs):
+                self.attrs.update(kwargs)
+
+            def get(self, attr, default=None):
+                return self.attrs.get(attr, default)
+
+            @property
+            def rawsource(self):
+                return "rawsource"
+
+        return DummyNode(**kwargs)
+
+    def _getDummySelf(self, *args, **kwargs):
+        class DummyBody(object):
+            content = []
+
+            def append(self, content):
+                self.content.append(content)
+
+        class DummySelf(object):
+            fist_last = False
+
+            def __init__(self, body):
+                self.body = body
+
+            def starttag(self, node, tag, **kwargs):
+                ids = kwargs.pop('ids')
+                if ids:
+                    kwargs.update({'id': " ".join(ids)})
+
+                attr_str = " ".join(
+                    ["{}='{}'".format(k, v) for k, v in kwargs.items()]
+                )
+                return "<{} {}>".format(tag, attr_str)
+
+            def set_first_last(self, node):
+                self.first_last = True
+
+        return DummySelf(DummyBody())
+
+    def test_it(self):
+        dummyself = self._getDummySelf()
+        dummynode = self._getDummyNode()
+
+        self._callFUT(dummyself, dummynode)
+        self.assertEqual([
+            "<section id='id'>",
+            u'<h1>title</h1>\n',
+            u'<h2>subtitle</h2>\n'
+        ], dummyself.body.content)
+
+    def test_markdown(self):
+        dummyself = self._getDummySelf()
+        dummynode = self._getDummyNode(**{"data-markdown": "hoge"})
+
+        self._callFUT(dummyself, dummynode)
+        self.assertEqual(["<section data-markdown='hoge' id='id'>"],
+                         dummyself.body.content)
+
+        dummyself = self._getDummySelf()
+        dummynode = self._getDummyNode(**{"data-markdown": ""})
+
+        self._callFUT(dummyself, dummynode)
+        self.assertEqual([
+            "<section data-markdown='' id='id'>",
+            "<script type='text/template'>\n",
+            u'# title \n',
+            u'## subtitle \n',
+            'rawsource',
+            '</script>\n'
+        ], dummyself.body.content)
 
 
 class DepartRevealjsTest(unittest.TestCase):

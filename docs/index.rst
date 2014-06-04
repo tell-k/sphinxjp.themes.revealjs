@@ -135,7 +135,7 @@ sphinxjp.themes.revealjs
  apply broader style changes, like switching the background.
 
 .. revealjs:: Custom Events
- :data_state: customevent
+ :data-state: customevent
 
  Additionally custom events can be triggered on a per slide basis by binding to the :code:`data-state` name.
 

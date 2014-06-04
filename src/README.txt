@@ -29,7 +29,7 @@ Convert Usage
 =============
 setup conf.py with::
 
-    extensions = ['sphinxjp.themecore']
+    extensions = ['sphinxjp.themes.revealjs']
     html_theme = 'revealjs'
     html_use_index = False
 
