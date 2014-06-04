@@ -301,9 +301,9 @@ class VisitRevealjsTest(unittest.TestCase):
                     kwargs.update({'id': " ".join(ids)})
 
                 attr_str = " ".join(
-                    ["{}='{}'".format(k, v) for k, v in kwargs.items()]
+                    ["{0}='{1}'".format(k, v) for k, v in kwargs.items()]
                 )
-                return "<{} {}>".format(tag, attr_str)
+                return "<{0} {1}>".format(tag, attr_str)
 
             def set_first_last(self, node):
                 self.first_last = True
@@ -311,17 +311,19 @@ class VisitRevealjsTest(unittest.TestCase):
         return DummySelf(DummyBody())
 
     def test_it(self):
+        from sphinxjp.themes.revealjs import compat
         dummyself = self._getDummySelf()
         dummynode = self._getDummyNode()
 
         self._callFUT(dummyself, dummynode)
         self.assertEqual([
-            "<section id='id'>",
-            u'<h1>title</h1>\n',
-            u'<h2>subtitle</h2>\n'
+            compat.text("<section id='id'>"),
+            compat.text('<h1>title</h1>\n'),
+            compat.text('<h2>subtitle</h2>\n')
         ], dummyself.body.content)
 
     def test_markdown(self):
+        from sphinxjp.themes.revealjs import compat
         dummyself = self._getDummySelf()
         dummynode = self._getDummyNode(**{"data-markdown": "hoge"})
 
@@ -334,12 +336,12 @@ class VisitRevealjsTest(unittest.TestCase):
 
         self._callFUT(dummyself, dummynode)
         self.assertEqual([
-            "<section data-markdown='' id='id'>",
-            "<script type='text/template'>\n",
-            u'# title \n',
-            u'## subtitle \n',
-            'rawsource',
-            '</script>\n'
+            compat.text("<section data-markdown='' id='id'>"),
+            compat.text("<script type='text/template'>\n"),
+            compat.text('# title \n'),
+            compat.text('## subtitle \n'),
+            compat.text('rawsource'),
+            compat.text('</script>\n')
         ], dummyself.body.content)
 
 
@@ -399,7 +401,7 @@ class VisitRvCodeTest(unittest.TestCase):
 
             def starttag(self, node, tag):
                 try:
-                    return "<{}>".format(tag)
+                    return "<{0}>".format(tag)
                 except ValueError:
                     return "<%s>" % tag
 
@@ -487,10 +489,7 @@ class VisitRvSmallTest(unittest.TestCase):
                 self.first_last = False
 
             def starttag(self, node, tag):
-                try:
-                    return "<{}>".format(tag)
-                except ValueError:
-                    return "<%s>" % tag
+                return "<{0}>".format(tag)
 
             def set_first_last(self, node):
                 self.first_last = True
@@ -569,10 +568,7 @@ class VisitRvNoteTest(unittest.TestCase):
 
             def starttag(self, node, tag, **kwargs):
                 class_name = kwargs.pop('class')
-                try:
-                    return '<{} class="{}">'.format(tag, class_name)
-                except ValueError:
-                    return '<%s class="%s">' % (tag, class_name)
+                return '<{0} class="{1}">'.format(tag, class_name)
 
             def set_first_last(self, node):
                 self.first_last = True
