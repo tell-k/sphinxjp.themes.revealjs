@@ -299,11 +299,9 @@ class VisitRevealjsTest(unittest.TestCase):
                 ids = kwargs.pop('ids')
                 if ids:
                     kwargs.update({'id': " ".join(ids)})
-
-                attr_str = " ".join(
-                    ["{0}='{1}'".format(k, v) for k, v in kwargs.items()]
-                )
-                return "<{0} {1}>".format(tag, attr_str)
+                attrs = ["{0}='{1}'".format(k, v) for k, v in kwargs.items()]
+                attrs.sort()
+                return "<{0} {1}>".format(tag, " ".join(attrs))
 
             def set_first_last(self, node):
                 self.first_last = True
