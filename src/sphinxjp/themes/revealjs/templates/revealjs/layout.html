@@ -140,7 +140,7 @@ Master layout template for Sphinx themes.
 
         {% if theme_multiplex %}
         multiplex: {
-            {%- for k, v in theme_multiplex.iteritems() -%}
+            {%- for k, v in theme_multiplex.items() -%}
             {%- if v %}
                 {{ k }}: "{{ v }}"{%- if not loop.last %},{% endif -%}
             {% endif -%}
@@ -149,7 +149,7 @@ Master layout template for Sphinx themes.
         {% endif -%}
         {%- if theme_leap %}
         leap: {
-            {% for k, v in theme_leap.iteritems() -%}
+            {% for k, v in theme_leap.items() -%}
                 {% if k in ('autoCenter', 'naturalSwipe') -%}
                     {{ k }}: {{ v|lower }}{% if not loop.last -%},{% endif %}
                 {% elif k in ('pointerColor') -%}
@@ -162,7 +162,7 @@ Master layout template for Sphinx themes.
         {% endif %}
         {%- if theme_math  %}
         math: {
-            {% for k, v in theme_math.iteritems() -%}
+            {% for k, v in theme_math.items() -%}
                 {{ k }}: "{{ v }}"{%- if not loop.last %},{% endif -%}
             {% endfor -%}
         },
