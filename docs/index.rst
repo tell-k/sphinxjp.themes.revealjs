@@ -118,6 +118,8 @@ sphinxjp.themes.revealjs
 
  `Sky <?theme=sky#/themes>`_ -
  `Beige <?theme=beige#/themes>`_ -
+ `Blood <?theme=blood#/themes>`_ -
+ `Solarized <?theme=solarized#/themes>`_ -
  `Simple <?theme=simple#/themes>`_ -
  `Serif <?theme=serif#/themes>`_ -
  `Night <?theme=night#/themes>`_ -

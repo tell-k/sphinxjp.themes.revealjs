@@ -64,7 +64,7 @@ class RevealjsDirectiveTest(unittest.TestCase):
     def _getParams(self, **kwargs):
         params = dict(
             name='dummyname',
-            arguments='tell-k test',
+            arguments=['tell-k', 'test'],
             options={},
             content="test",
             lineno=1,

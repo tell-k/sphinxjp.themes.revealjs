@@ -78,8 +78,8 @@ html_theme_options = {
     # Opens links in an iframe preview overlay
     "preview_links": False,
 
-    # Theme (default/beige/moon/night/serif/simple/sky/solarized)
-    "theme": "default",
+    # Theme (default/blood/beige/moon/night/serif/simple/sky/solarized)
+    "theme": "blood",
 
     # Transition style (default/cube/page/concave/zoom/linear/fade/none)
     "transition": "default",
@@ -90,7 +90,65 @@ html_theme_options = {
     # Transition style for full page slide backgrounds (default/linear)
     "background_transition": "default",
 
-    # Enable plguin javascript for reveal.js
-    "plugin_list": ["search/search.js", "remotes/remotes.js"],
+    # Display the page number of the current slide
+    "slide_number": False,
 
+    # Flags if the presentation is running in an embedded mode,
+    # i.e. contained within a limited portion of the screen
+    "embedded": False,
+
+    # Stop auto-sliding after user input
+    "auto_slide_stoppable": True,
+
+    # Hides the address bar on mobile devices
+    "hide_address_bar": True,
+
+    # Parallax background image
+    # CSS syntax, e.g. "a.jpg"
+    "parallax_background_image": '',
+
+    # Parallax background size
+    # CSS syntax, e.g. "3000px 2000px"
+    "parallax_background_size": '',
+
+    # Focuses body when page changes visibility to ensure keyboard shortcuts work
+    "focus_body_on_page_visibility_change": True,
+
+    # Number of slides away from the current that are visible
+    "view_distance": 3,
+
+    # Enable plguin javascript for reveal.js
+    "plugin_list": [
+        "_static/plugin/search/search.js",
+        "_static/plugin/remotes/remotes.js"
+    ],
+
+    # config for Multiplexing
+    "multiplex": {
+        "secret": None, # null so the clients do not have control of the master presentation
+        "id": '1ea875674b17ca76', # id, obtained from socket.io server
+        "url": 'example.com:80' # Location of your socket.io server
+    },
+
+    # config for Leap Motion
+    "leap": {
+       "autoCenter": True,
+       "gestureDelay": 500,
+       "naturalSwipe": False,
+       "pointerOpacity": 0.5,
+       "pointerColor": '#d80000',
+       "pointerSize": 15,
+       "pointerTolerance": 120,
+    },
+
+    # config for MathJax
+    "math": {
+        "mathjax": 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+        "config": 'TeX-AMS_HTML-full' # See http://docs.mathjax.org/en/latest/config-files.html
+    },
+
+    # loading custom js after RevealJs.initialize.
+    "customjs": "reveal-configure.js",
 }
+
+html_static_path = ['_static']

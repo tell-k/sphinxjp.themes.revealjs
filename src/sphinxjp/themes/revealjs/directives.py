@@ -55,6 +55,7 @@ class RevealjsDirective(Directive):
         'subtitle-heading': directives.unchanged,
         'data-markdown': directives.unchanged,
         'data-transition': directives.unchanged,
+        'data-transition-speed': directives.unchanged,
         'data-background': directives.unchanged,
         'data-background-repeat': directives.unchanged,
         'data-background-size': directives.unchanged,
@@ -63,6 +64,7 @@ class RevealjsDirective(Directive):
         'data-separator': directives.unchanged,
         'data-vertical': directives.unchanged,
     }
+
     node_class = revealjs
 
     def run(self):
@@ -79,7 +81,7 @@ class RevealjsDirective(Directive):
             self.state.nested_parse(self.content, self.content_offset, node)
 
         if self.arguments:
-            node['title'] = "".join(self.arguments)
+            node['title'] = " ".join(self.arguments)
 
         node['noheading'] = ('noheading' in self.options)
 
@@ -88,6 +90,7 @@ class RevealjsDirective(Directive):
             'title-heading',
             'subtitle-heading',
             'data-transition',
+            'data-transition-speed',
             'data-background',
             'data-background-repeat',
             'data-background-size',

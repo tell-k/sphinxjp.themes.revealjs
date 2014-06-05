@@ -1,6 +1,13 @@
 History
 =======
 
+0.2.0 (Jun 5, 2014)
+---------------------
+* Upgrade Reveal.js version to 2.6.2
+* Upgrade JQuery version to v1.11.1
+* Improved unittest.
+* Enrich the document.
+
 0.1.1 (Jan 1, 2014)
 ---------------------
 * add html_theme_options['plugin_list'].
