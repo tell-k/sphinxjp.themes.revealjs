@@ -54,7 +54,8 @@ This directive crate a slide section for reveal.js.
 
   .. revealjs:: Heads Up
 
-   reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with support for CSS 3D transforms to see it in its full glory.
+   reveal.js is a framework for easily creating beautiful presentations using HTML. 
+   You'll need a browser with support for CSS 3D transforms to see it in its full glory.
 
 
 Slides can be nested inside of other slides,
@@ -185,132 +186,113 @@ You can change settings in conf.py
 
   html_theme_options = {
 
-      # Set the lang attribute of the html tag. Defaults to "ja"
-      "lang": "ja",
+   # Set the lang attribute of the html tag. Defaults to "ja"
+   "lang": "ja",
 
-      # The "normal" size of the presentation, aspect ratio will be preserved
-      # when the presentation is scaled to fit different resolutions
-      "width": 960,
-      "height": 700,
+   # The "normal" size of the presentation, aspect ratio will be preserved
+   # when the presentation is scaled to fit different resolutions
+   "width": 960,
+   "height": 700,
 
-      # Factor of the display size that should remain empty around the content
-      "margin": 0.1,
+   # Factor of the display size that should remain empty around the content
+   "margin": 0.1,
 
-      # Bounds for smallest/largest possible scale to apply to content
-      "min_scale": 0.2,
-      "max_scale": 1.0,
+   # Bounds for smallest/largest possible scale to apply to content
+   "min_scale": 0.2,
+   "max_scale": 1.0,
 
-      # Display controls in the bottom right corner
-      "controls": True,
+   # Display controls in the bottom right corner
+   "controls": True,
 
-      # Display a presentation progress bar
-      "progress": True,
+   # Display a presentation progress bar
+   "progress": True,
 
-      # Push each slide change to the browser history
-      "history": True,
+   # Push each slide change to the browser history
+   "history": True,
 
-      # Enable keyboard shortcuts for navigation
-      "keyboard": True,
+   # Enable keyboard shortcuts for navigation
+   "keyboard": True,
 
-      # Enable the slide overview mode
-      "overview": True,
+   # Enable the slide overview mode
+   "overview": True,
 
-      # Vertical centring of slides
-      "center": True,
+   # Vertical centring of slides
+   "center": True,
 
-      # Enables touch navigation on devices with touch input
-      "touch": True,
+   # Enables touch navigation on devices with touch input
+   "touch": True,
 
-      # Loop the presentation
-      "loop": False,
+   # Loop the presentation
+   "loop": False,
 
-      # Change the presentation direction to be RTL
-      "rtl": False,
+   # Change the presentation direction to be RTL
+   "rtl": False,
 
-      # Turns fragments on and off globally
-      "fragments": True,
+   # Turns fragments on and off globally
+   "fragments": True,
 
-      # Number of milliseconds between automatically proceeding to the
-      # next slide, disabled when set to 0, this value can be overwritten
-      # by using a data-autoslide attribute on your slides
-      "auto_slide": 0,
+   # Number of milliseconds between automatically proceeding to the
+   # next slide, disabled when set to 0, this value can be overwritten
+   # by using a data-autoslide attribute on your slides
+   "auto_slide": 0,
 
-      # Enable slide navigation via mouse wheel
-      "mouse_wheel": False,
+   # Enable slide navigation via mouse wheel
+   "mouse_wheel": False,
 
-      # Apply a 3D roll to links on hover
-      "rolling_links": True,
+   # Apply a 3D roll to links on hover
+   "rolling_links": True,
 
-      # Opens links in an iframe preview overlay
-      "preview_links": False,
+   # Opens links in an iframe preview overlay
+   "preview_links": False,
 
-      # Theme (default/blood/beige/moon/night/serif/simple/sky/solarized)
-      "theme": "blood",
+   # Theme (default/blood/beige/moon/night/serif/simple/sky/solarized)
+   "theme": "blood",
 
-      # Transition style (default/cube/page/concave/zoom/linear/fade/none)
-      "transition": "default",
+   # Transition style (default/cube/page/concave/zoom/linear/fade/none)
+   "transition": "default",
 
-      # Transition speed (default/fast/slow)
-      "transition_speed": "default",
+   # Transition speed (default/fast/slow)
+   "transition_speed": "default",
 
-      # Transition style for full page slide backgrounds (default/linear)
-      "background_transition": "default",
+   # Transition style for full page slide backgrounds (default/linear)
+   "background_transition": "default",
 
-      # Display the page number of the current slide
-      "slide_number": False,
+   # Display the page number of the current slide
+   "slide_number": False,
 
-      # Flags if the presentation is running in an embedded mode,
-      # i.e. contained within a limited portion of the screen
-      "embedded": False,
+   # Flags if the presentation is running in an embedded mode,
+   # i.e. contained within a limited portion of the screen
+   "embedded": False,
 
-      # Stop auto-sliding after user input
-      "auto_slide_stoppable": True,
+   # Stop auto-sliding after user input
+   "auto_slide_stoppable": True,
 
-      # Hides the address bar on mobile devices
-      "hide_address_bar": True,
+   # Hides the address bar on mobile devices
+   "hide_address_bar": True,
 
-      # Parallax background image
-      # CSS syntax, e.g. "a.jpg"
-      "parallax_background_image": 'a.jpg',
+   # Parallax background image
+   # CSS syntax, e.g. "a.jpg"
+   "parallax_background_image": 'a.jpg',
 
-      # Parallax background size
-      # CSS syntax, e.g. "3000px 2000px"
-      "parallax_background_size": '3000px 2000px',
+   # Parallax background size
+   # CSS syntax, e.g. "3000px 2000px"
+   "parallax_background_size": '3000px 2000px',
 
-      # Focuses body when page changes visibility to ensure keyboard shortcuts work
-      "focus_body_on_page_visibility_change": True,
+   # Focuses body when page changes visibility to ensure keyboard shortcuts work
+   "focus_body_on_page_visibility_change": True,
 
-      # Number of slides away from the current that are visible
-      "view_distance": 3,
+   # Number of slides away from the current that are visible
+   "view_distance": 3,
 
-      # Enable plguin javascript for reveal.js
-      "plugin_list": [
-        "_static/plugin/leap/leap.js",
-        "_static/plugin/multiplex/master.js",
-        "_static/plugin/search/search.js",
-        "_static/plugin/remotes/remotes.js"
-        "_static/plugin/notes-server/client.js",
-      ],
+   # Enable plguin javascript for reveal.js
+   "plugin_list": [
+     "_static/plugin/leap/leap.js",
+     "_static/plugin/multiplex/master.js",
+     "_static/plugin/search/search.js",
+     "_static/plugin/remotes/remotes.js"
+     "_static/plugin/notes-server/client.js",
+   ],
 
-      # config for Leap Motion
-      "leap": {
-         "autoCenter": True,
-         "gestureDelay": 500,
-         "naturalSwipe": False,
-         "pointerOpacity": 0.5,
-         "pointerColor": '#d80000',
-         "pointerSize": 15,
-         "pointerTolerance": 120,
-      },
-
-      # config for MathJax
-      "math": {
-          "mathjax": 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
-          "config": 'TeX-AMS_HTML-full' # See http://docs.mathjax.org/en/latest/config-files.html
-      },
-
-      # loading custom js after RevealJs.initialize.
-      "customjs": "reveal-configure.js",
   }
  
 Multiplexing
@@ -352,6 +334,7 @@ conf.py::
      "pointerSize": 15,
      "pointerTolerance": 120,
   },
+
   "plugin_list": [
     "_static/plugin/leap/leap.js",
   ],
@@ -377,7 +360,12 @@ conf.py::
 Setting with JS
 --------------------------
 
-TODO
+conf.py::
+
+  # set html_theme_options
+
+  # loading custom js after RevealJs.initialize.
+  "customjs": "reveal-configure.js",
 
 
 Requirement
