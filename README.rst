@@ -54,7 +54,7 @@ This directive crate a slide section for reveal.js.
 
   .. revealjs:: Heads Up
 
-   reveal.js is a framework for easily creating beautiful presentations using HTML. 
+   reveal.js is a framework for easily creating beautiful presentations using HTML.
    You'll need a browser with support for CSS 3D transforms to see it in its full glory.
 
 
@@ -62,11 +62,11 @@ Slides can be nested inside of other slides,
 
 ::
 
-  .. revealjs:: 
+  .. revealjs::
 
    .. revealjs:: Vertical Slide1
 
-    vertical slide1 
+    vertical slide1
 
    .. revealjs:: Vertical Slide2
 
@@ -76,11 +76,11 @@ Slides can be nested inside of other slides,
 
     vertical slide3
 
-You can set various options.
+You can set various directive options.
 
-:: 
+::
 
-  # For example, you can write in Markdown syntax to use the data-markdown option.   
+  # For example, you can write in Markdown syntax to use the data-markdown option.
 
   .. revealjs::
      :data-markdown:
@@ -91,38 +91,46 @@ You can set various options.
 
 Other options
 
++------------+------------+-----------+
+| class   | Set 'class' attribute to 'section' tag.  | .. revealjs::   |
+|         |                                          |    :class:"test"  |
++------------+------------+-----------+
+|  | column 2   | column 3  |
++------------+------------+-----------+
+
 .. list-table::
+
 
    * - class
      - Set 'class' attribute to 'section' tag.
    * - noheading
-     - 
-   * - noheading
-     - 
+     - It does not display the heading.
    * - title-heading
-     - 
+     - You can change the size of the title tag. h1〜h2
    * - subtitle
-     - 
+     -
    * - subtitle-heading
-     - 
+     -
+   * - data-autoslide
+     -
    * - data-markdown
-     - 
+     -
    * - data-transition
-     - 
+     -
    * - data-transition-speed
-     - 
+     -
    * - data-background
-     - 
+     -
    * - data-background-repeat
-     - 
+     -
    * - data-transition
-     - 
+     -
    * - data-state
-     - 
+     -
    * - data-separator
-     - 
+     -
    * - data-vertical
-     - 
+     -
 
 rv_code
 ---------------------
@@ -294,15 +302,16 @@ You can change settings in conf.py
    ],
 
   }
- 
+
 Multiplexing
 --------------------
 
-see also: https://github.com/hakimel/reveal.js#multiplexing
+https://github.com/hakimel/reveal.js#multiplexing
 
-conf.py::
+::
 
-  # set html_theme_options
+  # html_theme_options in conf.py
+
   "multiplex": {
       "secret": None, # null so the clients do not have control of the master presentation
       "id": '1ea875674b17ca76', # id, obtained from socket.io server
@@ -324,7 +333,8 @@ see also: https://github.com/hakimel/reveal.js#leap-motion
 
 conf.py::
 
-  # set html_theme_options
+  # html_theme_options in conf.py
+
   "leap": {
      "autoCenter": True,
      "gestureDelay": 500,
@@ -342,15 +352,16 @@ conf.py::
 MathJax
 --------------------
 
-see also: https://github.com/hakimel/reveal.js#mathjax
+https://github.com/hakimel/reveal.js#mathjax
 
-conf.py::
+::
 
-  # set html_theme_options
+  # html_theme_options in conf.py
+
   "math": {
       "mathjax": 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
       # See http://docs.mathjax.org/en/latest/config-files.html
-      "config": 'TeX-AMS_HTML-full' 
+      "config": 'TeX-AMS_HTML-full'
   },
 
   "plugin_list": [
@@ -360,10 +371,9 @@ conf.py::
 Setting with JS
 --------------------------
 
-conf.py::
+::
 
-  # set html_theme_options
-
+  # html_theme_options in conf.py
   # loading custom js after RevealJs.initialize.
   "customjs": "reveal-configure.js",
 
