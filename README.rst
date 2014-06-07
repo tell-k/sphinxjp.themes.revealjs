@@ -91,10 +91,19 @@ You can set various directive options.
 
 Other options
 
+=====  =====  =======
+A      B      A and B
+=====  =====  =======
+False  Set 'class' attribute to 'section' tag.  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
+
 +------------+------------+-----------+ 
 | Header 1   | Header 2   | Header 3  | 
 +============+============+===========+ 
-| class   | Set 'class' attribute to 'section' tag.  | |.. revealjs::   |
+| class   |   | |.. revealjs::   |
 |         |                                          | |   :class:"test"  |
 +------------+------------+-----------+
 
