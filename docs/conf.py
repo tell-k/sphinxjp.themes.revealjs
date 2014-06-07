@@ -79,7 +79,7 @@ html_theme_options = {
     "preview_links": False,
 
     # Theme (default/blood/beige/moon/night/serif/simple/sky/solarized)
-    "theme": "blood",
+    "theme": "default",
 
     # Transition style (default/cube/page/concave/zoom/linear/fade/none)
     "transition": "default",
