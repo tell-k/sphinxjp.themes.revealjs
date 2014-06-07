@@ -64,6 +64,8 @@ class RevealjsDirective(Directive):
         'data-state': directives.unchanged,
         'data-separator': directives.unchanged,
         'data-vertical': directives.unchanged,
+        'data-notes': directives.unchanged,
+        'data-charset': directives.unchanged,
     }
 
     node_class = revealjs
@@ -101,6 +103,8 @@ class RevealjsDirective(Directive):
             'data-markdown',
             'data-separator',
             'data-vertical',
+            'data-notes',
+            'data-charset',
         )
         for option in options_list:
             if option in self.options:
@@ -189,7 +193,9 @@ def visit_revealjs(self, node):
         section_attr.update({"ids": [node.get("id")]})
 
     attr_list = (
+        'data-autoslide',
         'data-transition',
+        'data-transition-speed',
         'data-background',
         'data-background-repeat',
         'data-background-size',
@@ -198,6 +204,8 @@ def visit_revealjs(self, node):
         'data-markdown',
         'data-separator',
         'data-vertical',
+        'data-notes',
+        'data-charset',
     )
     for attr in attr_list:
         if node.get(attr) is not None:

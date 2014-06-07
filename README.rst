@@ -78,92 +78,190 @@ Slides can be nested inside of other slides,
 
 You can set various directive options.
 
+
+class
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set 'class' attribute to 'section' tag.
+
 ::
 
-  # For example, you can write in Markdown syntax to use the data-markdown option.
+  .. revealjs:: Slide Title
+     :class: spam
 
-  .. revealjs::
+
+noheading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It does not display the title heading.
+
+::
+
+  .. revealjs:: Slide Title
+     :noheading:
+
+title-heading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can change the size of the title tag. h1〜h2
+
+::
+
+  .. revealjs:: Slide Title
+     :title-heading: h3
+
+
+subtitle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can subtitle text.
+
+::
+
+  .. revealjs:: Slide Title
+     :subtitle:: Subtitle Text
+
+
+subtitle-heading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can change the size of the subtitle tag. h1〜h2
+
+::
+
+  .. revealjs:: Slide Title
+     :subtitle: Subtitle Text
+     :subtitle-heading: h4
+
+data-autoslide
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Number of milliseconds between automatically proceeding to the next slide
+
+::
+
+  .. revealjs:: Slide Title
+     :data-autoslide: 4000
+
+
+data-markdown
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can write in Markdown syntax to use the data-markdown option.
+
+::
+
+  .. revealjs:: Slide Title
      :data-markdown:
 
      ## Page title
 
      A paragraph with some text and a [link](http://hakim.se).
 
-Other options
-
-=====  =====  =======
-A      B      A and B
-=====  =====  =======
-False  Set 'class' attribute to 'section' tag.  False
-True   False  False
-False  True   False
-True   True   True
-=====  =====  =======
-
-+------------+------------+-----------+ 
-| Header 1   | Header 2   | Header 3  | 
-+============+============+===========+ 
-| class   |   | |.. revealjs::   |
-|         |                                          | |   :class:"test"  |
-+------------+------------+-----------+
-
-.. list-table::
+You can read the external Markdown.
 
 
-   * - class
-     - Set 'class' attribute to 'section' tag.
-   * - noheading
-     - It does not display the heading.
-   * - title-heading
-     - You can change the size of the title tag. h1〜h2
-   * - subtitle
-     -
-   * - subtitle-heading
-     -
-   * - data-autoslide
-     -
-   * - data-markdown
-     -
-   * - data-transition
-     -
-   * - data-transition-speed
-     -
-   * - data-background
-     -
-   * - data-background-repeat
-     -
-   * - data-transition
-     -
-   * - data-state
-     -
-   * - data-separator
-     -
-   * - data-vertical
-     -
+::
+
+  .. revealjs:: External Markdown
+     :data-markdown: _static/external.md
+     :data-separator: ^\n\n\n
+     :data-vertical: ^\n\n
+     :data-notes: ^Note:
+
+
+data-transition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Change transition style by the following pattern.
+
+* default
+* cube
+* page
+* concave
+* zoom
+* linear
+* fade
+* none
+
+::
+
+  .. revealjs:: Slide Title
+     :data-transition: zoom
+
+
+data-transition-speed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Change transition speed by the following pattern.
+
+* default
+* fast
+* slow
+
+::
+
+  .. revealjs:: Slide Title
+     :data-transition-speed: fast
+
+
+data-background
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Change background settings.
+
+::
+
+  .. revealjs:: Slide Title
+     :data-background: "http://example.com/image.png"
+     :data-background-size: 100px
+     :data-background-repeat: repeat
+     :data-background-transition: page
+
+
+data-state
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you set data-state on a slide, "somestate" will be applied as a class on the document element when that slide is opened.
+This allows you to apply broad style changes to the page based on the active slide.
+
+::
+
+  .. revealjs:: Slide Title
+     :data-state: somestate
+
+Furthermore you can also listen to these changes in state via JavaScript
+
+::
+
+  Reveal.addEventListener('somestate', function() {
+      // TODO: Sprinkle magic
+  }, false );
+
 
 rv_code
 ---------------------
 
 ::
 
-    .. revealjs:: Pretty Code
+ .. revealjs:: Pretty Code
 
-     .. rv_code::
+  .. rv_code::
 
-      function linkify( selector ) {
-        if( supports3DTransforms ) {
+   function linkify( selector ) {
+     if( supports3DTransforms ) {
 
-          var nodes = document.querySelectorAll( selector );
+       var nodes = document.querySelectorAll( selector );
 
-          for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-            var node = nodes[i];
+       for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+         var node = nodes[i];
 
-            if( !node.className ) ) {
-              node.className += ' roll';
-            }
-          };
-        }
-      }
+         if( !node.className ) ) {
+           node.className += ' roll';
+         }
+       };
+     }
+   }
 
 
 rv_small
@@ -173,11 +271,11 @@ This directive can be used when writing the text smaller.
 
 ::
 
-    .. revealjs:: rv_small smaple
+ .. revealjs:: rv_small smaple
 
-     .. rv_small::
+  .. rv_small::
 
-      Created by `tell-k <http://github.com/tell-k>`_ / `@tell-k <http://twitter.com/tell_k>`_
+   Created by `tell-k <http://github.com/tell-k>`_ / `@tell-k <http://twitter.com/tell_k>`_
 
 rv_note
 ---------------------
@@ -186,18 +284,18 @@ This directive can be used when creating some notes for presenter. They'll be hi
 
 ::
 
-    .. revealjs:: Heads Up
+ .. revealjs:: Heads Up
 
-     reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with support for CSS 3D transforms to see it in its full glory.
+  reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with support for CSS 3D transforms to see it in its full glory.
 
-     .. rv_note::
+  .. rv_note::
 
-      Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+   Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 
 Customize Config
 =============================
 
-You can change settings in conf.py
+By changing html_theme_options, you can change the settings for the whole.
 
 ::
 
@@ -319,7 +417,7 @@ https://github.com/hakimel/reveal.js#multiplexing
 
 ::
 
-  # html_theme_options in conf.py
+ html_theme_options = {
 
   "multiplex": {
       "secret": None, # null so the clients do not have control of the master presentation
@@ -335,14 +433,16 @@ https://github.com/hakimel/reveal.js#multiplexing
     "_static/plugin/notes-server/client.js",
   ],
 
+ }
+
 Leap Motion
 --------------------
 
-see also: https://github.com/hakimel/reveal.js#leap-motion
+https://github.com/hakimel/reveal.js#leap-motion
 
-conf.py::
+::
 
-  # html_theme_options in conf.py
+ html_theme_options = {
 
   "leap": {
      "autoCenter": True,
@@ -358,6 +458,8 @@ conf.py::
     "_static/plugin/leap/leap.js",
   ],
 
+ }
+
 MathJax
 --------------------
 
@@ -365,7 +467,7 @@ https://github.com/hakimel/reveal.js#mathjax
 
 ::
 
-  # html_theme_options in conf.py
+ html_theme_options = {
 
   "math": {
       "mathjax": 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
@@ -377,14 +479,31 @@ https://github.com/hakimel/reveal.js#mathjax
     "_static/plugin/math/math.js",
   ],
 
-Setting with JS
+ }
+
+
+Setting with  Javascript
 --------------------------
+
+It is also possible to change the settings by using the Javascript.
+
+1. create 'mysettings.js'.
+
+mysettings.js::
+
+ // Turn autoSlide off
+ Reveal.configure({ autoSlide: 0 });
+
+2. change conf.py
 
 ::
 
-  # html_theme_options in conf.py
+ html_static_path = ['_static']
+
+ html_theme_options = {
   # loading custom js after RevealJs.initialize.
-  "customjs": "reveal-configure.js",
+  "customjs": "mysettings.js",
+ }
 
 
 Requirement

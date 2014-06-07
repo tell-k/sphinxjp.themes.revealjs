@@ -97,6 +97,13 @@ sphinxjp.themes.revealjs
   more info available[here](https://github.com/hakimel/reveal.js#markdown).
  ```
 
+.. revealjs:: External Markdown
+ :data-markdown: _static/external.md
+ :data-separator: ^\n\n\n
+ :data-vertical: ^\n\n
+ :data-notes: ^Speaker:
+
+
 .. revealjs:: Transition Styles
  :id: transitions
 
@@ -179,7 +186,7 @@ sphinxjp.themes.revealjs
 
    .. revealjs::
     :data-background: image.png
-    :data-background-repeat: repeat 
+    :data-background-repeat: repeat
     :data-background-size: 100px
 
 .. revealjs:: Background Transitions
@@ -234,6 +241,7 @@ sphinxjp.themes.revealjs
   }
 
  Courtesy of `highlight.js <http://softwaremaniacs.org/soft/highlight/en/description/>`_.
+
 
 .. revealjs:: Intergalactic Interconnections
 

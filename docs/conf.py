@@ -105,11 +105,11 @@ html_theme_options = {
 
     # Parallax background image
     # CSS syntax, e.g. "a.jpg"
-    "parallax_background_image": '',
+    "parallax_background_image" : '_static/bg.jpg',
 
     # Parallax background size
     # CSS syntax, e.g. "3000px 2000px"
-    "parallax_background_size": '',
+    "parallax_background_size": '2000px 900px',
 
     # Focuses body when page changes visibility to ensure keyboard shortcuts work
     "focus_body_on_page_visibility_change": True,
@@ -119,8 +119,8 @@ html_theme_options = {
 
     # Enable plguin javascript for reveal.js
     "plugin_list": [
-        "_static/plugin/search/search.js",
-        "_static/plugin/remotes/remotes.js"
+       #"_static/plugin/search/search.js",
+       #"_static/plugin/remotes/remotes.js"
     ],
 
     # config for Multiplexing
@@ -148,7 +148,7 @@ html_theme_options = {
     },
 
     # loading custom js after RevealJs.initialize.
-    "customjs": "reveal-configure.js",
+    "customjs": "mysettings.js",
 }
 
 html_static_path = ['_static']
