@@ -485,21 +485,21 @@ It is also possible to change the settings by using the Javascript.
 
 1. create 'mysettings.js'.
 
- ::
-
-  // Turn autoSlide off
-  Reveal.configure({ autoSlide: 0 });
+  ::
+  
+   // Turn autoSlide off
+   Reveal.configure({ autoSlide: 0 });
 
 2. change conf.py
 
- ::
-
-  html_static_path = ['_static']
- 
-  html_theme_options = {
-   # loading custom js after RevealJs.initialize.
-   "customjs": "mysettings.js",
-  }
+  ::
+  
+   html_static_path = ['_static']
+  
+   html_theme_options = {
+    # loading custom js after RevealJs.initialize.
+    "customjs": "mysettings.js",
+   }
 
 
 Requirement
