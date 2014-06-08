@@ -513,8 +513,8 @@ Requirement
 
 Using
 =============
-* Reveal.js 2.6.2
-* jQuery 1.10.2
+* `Reveal.js 2.6.2 <http://lab.hakim.se/reveal-js/#/>`_
+* `jQuery 1.11.2 <http://jquery.com/>`_
 
 License
 =======
