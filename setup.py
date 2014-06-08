@@ -20,7 +20,7 @@ classifiers = [
     "Topic :: Text Processing :: Markup",
 ]
 
-description = 'A sphinx theme for generate reveal.js presentation. #sphinxjp',
+description = 'A sphinx theme for generate reveal.js presentation. #sphinxjp'
 
 setup(
     name='sphinxjp.themes.revealjs',
@@ -52,5 +52,5 @@ setup(
         [sphinx_directives]
         setup = sphinxjp.themes.revealjs:setup
     """,
-    zip_safe=False,
+    zip_safe=False
 )
