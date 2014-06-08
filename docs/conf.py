@@ -6,9 +6,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 project = u'sphinx theme for reveal.js'
-copyright = u'2013, tell-k'
+copyright = u'2014, tell-k'
 
-version = '0.1.1'
+version = '0.2.0'
 
 # -- Options for HTML output --------------------------------------
 
@@ -105,50 +105,53 @@ html_theme_options = {
 
     # Parallax background image
     # CSS syntax, e.g. "a.jpg"
-    "parallax_background_image" : '_static/bg.jpg',
+    "parallax_background_image": '_static/bg.jpg',
 
     # Parallax background size
     # CSS syntax, e.g. "3000px 2000px"
     "parallax_background_size": '2000px 900px',
 
-    # Focuses body when page changes visibility to ensure keyboard shortcuts work
+    # Focuses body when page changes visibility
+    # to ensure keyboard shortcuts work
     "focus_body_on_page_visibility_change": True,
 
     # Number of slides away from the current that are visible
     "view_distance": 3,
 
     # Enable plguin javascript for reveal.js
-    "plugin_list": [
-       #"_static/plugin/search/search.js",
-       #"_static/plugin/remotes/remotes.js"
-    ],
+    # "plugin_list": [
+    #  "_static/plugin/search/search.js",
+    #  "_static/plugin/remotes/remotes.js"
+    # ],
 
     # config for Multiplexing
-    "multiplex": {
-        "secret": None, # null so the clients do not have control of the master presentation
-        "id": '1ea875674b17ca76', # id, obtained from socket.io server
-        "url": 'example.com:80' # Location of your socket.io server
-    },
+    # "multiplex": {
+    #   # None so the clients do not have control of the master presentation
+    #   "secret": None,
+    #   "id": '1ea875674b17ca76', # id, obtained from socket.io server
+    #   "url": 'example.com:80' # Location of your socket.io server
+    # },
 
     # config for Leap Motion
-    "leap": {
-       "autoCenter": True,
-       "gestureDelay": 500,
-       "naturalSwipe": False,
-       "pointerOpacity": 0.5,
-       "pointerColor": '#d80000',
-       "pointerSize": 15,
-       "pointerTolerance": 120,
-    },
+    # "leap": {
+    #    "autoCenter": True,
+    #    "gestureDelay": 500,
+    #    "naturalSwipe": False,
+    #    "pointerOpacity": 0.5,
+    #    "pointerColor": '#d80000',
+    #    "pointerSize": 15,
+    #    "pointerTolerance": 120,
+    # },
 
     # config for MathJax
-    "math": {
-        "mathjax": 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
-        "config": 'TeX-AMS_HTML-full' # See http://docs.mathjax.org/en/latest/config-files.html
-    },
+    # "math": {
+    #     "mathjax": 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+    #     # See http://docs.mathjax.org/en/latest/config-files.html
+    #     "config": 'TeX-AMS_HTML-full'
+    # },
 
     # loading custom js after RevealJs.initialize.
-    "customjs": "mysettings.js",
+    # "customjs": "mysettings.js",
 }
 
 html_static_path = ['_static']
