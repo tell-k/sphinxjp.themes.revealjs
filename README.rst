@@ -114,7 +114,7 @@ You can change the size of the title tag. h1〜h2
 subtitle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can subtitle text.
+You can set subtitle text.
 
 ::
 
