@@ -1,5 +1,5 @@
 ============================================
-sphinxjp.themes.revealjs 0.2.0
+sphinxjp.themes.revealjs 0.2.1
 ============================================
 
 reveal.js style presentation theme for Sphinx.

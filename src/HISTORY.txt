@@ -1,6 +1,10 @@
 History
 =======
 
+0.2.1 (Sep 20, 2014)
+---------------------
+* Fixed bug. "default theme.conf can't work.#1"
+
 0.2.0 (Jun 8, 2014)
 ---------------------
 * Upgrade Reveal.js version to 2.6.2
@@ -10,10 +14,10 @@ History
 
 0.1.1 (Jan 1, 2014)
 ---------------------
-* add html_theme_options['plugin_list'].
-* add tox test.
+* Add html_theme_options['plugin_list'].
+* Add tox test.
 * Python3 support.
 
 0.1.0 (Aug 25, 2013)
 ---------------------
-* first release
+* First release
