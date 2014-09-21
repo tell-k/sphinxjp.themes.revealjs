@@ -45,7 +45,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'setuptools',
-        'Sphinx==1.2.2',
+        'Sphinx',
     ],
     test_suite='nose.collector',
     tests_require=['nose', 'flake8', 'mock', 'coverage'],
