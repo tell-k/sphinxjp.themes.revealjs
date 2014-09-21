@@ -3,6 +3,11 @@ from setuptools import setup, find_packages
 import os
 
 version = '0.2.1'
+
+requires = [
+
+]
+
 long_description = '\n'.join([
     open(os.path.join("src", "README.txt")).read(),
     open(os.path.join("src", "AUTHORS.txt")).read(),
@@ -40,7 +45,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'setuptools',
-        'sphinx',
+        'Sphinx==1.2.2',
     ],
     test_suite='nose.collector',
     tests_require=['nose', 'flake8', 'mock', 'coverage'],
