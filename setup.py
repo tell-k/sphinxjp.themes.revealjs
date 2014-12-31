@@ -77,6 +77,7 @@ setup(
     cmdclass={'test': PyTest},
     install_requires=requires,
     tests_require=tests_require,
+    include_package_data=True,
     entry_points="""
         [sphinx_themes]
         path = sphinxjp.themes.revealjs:template_path
