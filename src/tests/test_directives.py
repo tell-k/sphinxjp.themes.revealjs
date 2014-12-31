@@ -6,7 +6,7 @@
     :author: tell-k <ffk2005@gmail.com>
     :copyright: tell-k. All Rights Reserved.
 """
-import unittest
+import pytest
 
 
 class DummyConfig(object):
@@ -26,42 +26,43 @@ class DummyConfig(object):
         return dict(msg=msg, line=line)
 
 
-class HeadingTest(unittest.TestCase):
+class TestHeading(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import heading
         return heading
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
     def test_it(self):
-        self.assertEqual("h1", self._callFUT("h1"))
-        self.assertEqual("h2", self._callFUT("h2"))
-        self.assertEqual("h3", self._callFUT("h3"))
-        self.assertEqual("h4", self._callFUT("h4"))
-        self.assertEqual("h5", self._callFUT("h5"))
-        self.assertEqual("h6", self._callFUT("h6"))
+        assert "h1" == self._call_fut("h1")
+        assert "h2" == self._call_fut("h2")
+        assert "h3" == self._call_fut("h3")
+        assert "h4" == self._call_fut("h4")
+        assert "h5" == self._call_fut("h5")
+        assert "h6" == self._call_fut("h6")
 
     def test_value_error(self):
-        self.assertRaises(ValueError, self._callFUT, "unknown")
+        with pytest.raises(ValueError):
+            self._call_fut("unknown")
 
 
-class RevealjsDirectiveTest(unittest.TestCase):
+class TestRevealjsDirective(object):
 
-    def _getTargetClass(self):
+    def _get_target_class(self):
         from sphinxjp.themes.revealjs.directives import RevealjsDirective
         return RevealjsDirective
 
-    def _makeOne(self, *args, **kwargs):
-        return self._getTargetClass()(*args, **kwargs)
+    def _make_one(self, *args, **kwargs):
+        return self._get_target_class()(*args, **kwargs)
 
-    def _getDummyConfig(self, **kwargs):
+    def _get_dummy_config(self, **kwargs):
         config = dict()
         config.update(kwargs)
         return DummyConfig(**config)
 
-    def _getParams(self, **kwargs):
+    def _get_params(self, **kwargs):
         params = dict(
             name='dummyname',
             arguments=['tell-k', 'test'],
@@ -77,55 +78,55 @@ class RevealjsDirectiveTest(unittest.TestCase):
         return params
 
     def test_it(self):
-        directive = self._makeOne(**self._getParams())
-        directive.state = self._getDummyConfig()
+        directive = self._make_one(**self._get_params())
+        directive.state = self._get_dummy_config()
 
         nodes = directive.run()
-        self.assertEqual(1, len(nodes))
-        self.assertEqual('tell-k test', nodes[0]['title'])
-        self.assertEqual(False, nodes[0]['noheading'])
-        self.assertEqual([], nodes[0]['classes'])
+        assert 1 == len(nodes)
+        assert 'tell-k test' == nodes[0]['title']
+        assert False == nodes[0]['noheading']
+        assert [] == nodes[0]['classes']
 
     def test_class_option(self):
-        directive = self._makeOne(**self._getParams(options={
+        directive = self._make_one(**self._get_params(options={
             "class": "add-class",
         }))
-        directive.state = self._getDummyConfig()
+        directive.state = self._get_dummy_config()
         nodes = directive.run()
-        self.assertEqual('add-class', nodes[0]['classes'])
+        assert 'add-class' == nodes[0]['classes']
 
     def test_noheading_option(self):
-        directive = self._makeOne(**self._getParams(options={
+        directive = self._make_one(**self._get_params(options={
             "noheading": None,
         }))
-        directive.state = self._getDummyConfig()
+        directive.state = self._get_dummy_config()
         nodes = directive.run()
-        self.assertEqual(True, nodes[0]['noheading'])
+        assert True == nodes[0]['noheading']
 
     def test_other_options(self):
-        directive = self._makeOne(**self._getParams(options={
+        directive = self._make_one(**self._get_params(options={
             "title-heading": "title-heading",
         }))
-        directive.state = self._getDummyConfig()
+        directive.state = self._get_dummy_config()
         nodes = directive.run()
-        self.assertEqual("title-heading", nodes[0]['title-heading'])
+        assert "title-heading" == nodes[0]['title-heading']
 
 
-class RvSmallDirectiveTest(unittest.TestCase):
+class TestRvSmallDirective(object):
 
-    def _getTargetClass(self):
+    def _get_target_class(self):
         from sphinxjp.themes.revealjs.directives import RvSmallDirective
         return RvSmallDirective
 
-    def _makeOne(self, *args, **kwargs):
-        return self._getTargetClass()(*args, **kwargs)
+    def _make_one(self, *args, **kwargs):
+        return self._get_target_class()(*args, **kwargs)
 
-    def _getDummyConfig(self, **kwargs):
+    def _get_dummy_config(self, **kwargs):
         config = dict()
         config.update(kwargs)
         return DummyConfig(**config)
 
-    def _getParams(self, **kwargs):
+    def _get_params(self, **kwargs):
         params = dict(
             name='dummyname',
             arguments='',
@@ -141,37 +142,37 @@ class RvSmallDirectiveTest(unittest.TestCase):
         return params
 
     def test_it(self):
-        directive = self._makeOne(**self._getParams())
-        directive.state = self._getDummyConfig()
+        directive = self._make_one(**self._get_params())
+        directive.state = self._get_dummy_config()
 
         nodes = directive.run()
-        self.assertEqual(1, len(nodes))
-        self.assertEqual([], nodes[0]['classes'])
+        assert 1 == len(nodes)
+        assert [] == nodes[0]['classes']
 
     def test_class_option(self):
-        directive = self._makeOne(**self._getParams(options={
+        directive = self._make_one(**self._get_params(options={
             "class": "add-class",
         }))
-        directive.state = self._getDummyConfig()
+        directive.state = self._get_dummy_config()
         nodes = directive.run()
-        self.assertEqual('add-class', nodes[0]['classes'])
+        assert 'add-class' == nodes[0]['classes']
 
 
-class RvNoteDirectiveTest(unittest.TestCase):
+class TestRvNoteDirective(object):
 
-    def _getTargetClass(self):
+    def _get_target_class(self):
         from sphinxjp.themes.revealjs.directives import RvNoteDirective
         return RvNoteDirective
 
-    def _makeOne(self, *args, **kwargs):
-        return self._getTargetClass()(*args, **kwargs)
+    def _make_one(self, *args, **kwargs):
+        return self._get_target_class()(*args, **kwargs)
 
-    def _getDummyConfig(self, **kwargs):
+    def _get_dummy_config(self, **kwargs):
         config = dict()
         config.update(kwargs)
         return DummyConfig(**config)
 
-    def _getParams(self, **kwargs):
+    def _get_params(self, **kwargs):
         params = dict(
             name='dummyname',
             arguments='',
@@ -187,37 +188,37 @@ class RvNoteDirectiveTest(unittest.TestCase):
         return params
 
     def test_it(self):
-        directive = self._makeOne(**self._getParams())
-        directive.state = self._getDummyConfig()
+        directive = self._make_one(**self._get_params())
+        directive.state = self._get_dummy_config()
 
         nodes = directive.run()
-        self.assertEqual(1, len(nodes))
-        self.assertEqual([], nodes[0]['classes'])
+        assert 1 == len(nodes)
+        assert [] == nodes[0]['classes']
 
     def test_class_option(self):
-        directive = self._makeOne(**self._getParams(options={
+        directive = self._make_one(**self._get_params(options={
             "class": "add-class",
         }))
-        directive.state = self._getDummyConfig()
+        directive.state = self._get_dummy_config()
         nodes = directive.run()
-        self.assertEqual('add-class', nodes[0]['classes'])
+        assert 'add-class' == nodes[0]['classes']
 
 
-class RvCodeDirectiveTest(unittest.TestCase):
+class TestRvCodeDirective(object):
 
-    def _getTargetClass(self):
+    def _get_target_class(self):
         from sphinxjp.themes.revealjs.directives import RvCodeDirective
         return RvCodeDirective
 
-    def _makeOne(self, *args, **kwargs):
-        return self._getTargetClass()(*args, **kwargs)
+    def _make_one(self, *args, **kwargs):
+        return self._get_target_class()(*args, **kwargs)
 
-    def _getDummyConfig(self, **kwargs):
+    def _get_dummy_config(self, **kwargs):
         config = dict()
         config.update(kwargs)
         return DummyConfig(**config)
 
-    def _getParams(self, **kwargs):
+    def _get_params(self, **kwargs):
         params = dict(
             name='dummyname',
             arguments='',
@@ -233,23 +234,23 @@ class RvCodeDirectiveTest(unittest.TestCase):
         return params
 
     def test_it(self):
-        directive = self._makeOne(**self._getParams())
-        directive.state = self._getDummyConfig()
+        directive = self._make_one(**self._get_params())
+        directive.state = self._get_dummy_config()
 
         nodes = directive.run()
-        self.assertEqual(1, len(nodes))
+        assert 1 == len(nodes)
 
 
-class VisitRevealjsTest(unittest.TestCase):
+class TestVisitRevealjs(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import visit_revealjs
         return visit_revealjs
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummyNode(self, *args, **kwargs):
+    def _get_dummy_node(self, *args, **kwargs):
 
         class DummyNode(object):
             attrs = {
@@ -282,7 +283,7 @@ class VisitRevealjsTest(unittest.TestCase):
 
         return DummyNode(**kwargs)
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -310,49 +311,49 @@ class VisitRevealjsTest(unittest.TestCase):
 
     def test_it(self):
         from sphinxjp.themes.revealjs import compat
-        dummyself = self._getDummySelf()
-        dummynode = self._getDummyNode()
+        dummyself = self._get_dummy_self()
+        dummynode = self._get_dummy_node()
 
-        self._callFUT(dummyself, dummynode)
-        self.assertEqual([
+        self._call_fut(dummyself, dummynode)
+        assert [
             compat.text("<section id='id'>"),
             compat.text('<h1>title</h1>\n'),
             compat.text('<h2>subtitle</h2>\n')
-        ], dummyself.body.content)
+        ] == dummyself.body.content
 
     def test_markdown(self):
         from sphinxjp.themes.revealjs import compat
-        dummyself = self._getDummySelf()
-        dummynode = self._getDummyNode(**{"data-markdown": "hoge"})
+        dummyself = self._get_dummy_self()
+        dummynode = self._get_dummy_node(**{"data-markdown": "hoge"})
 
-        self._callFUT(dummyself, dummynode)
-        self.assertEqual(["<section data-markdown='hoge' id='id'>"],
-                         dummyself.body.content)
+        self._call_fut(dummyself, dummynode)
+        assert ["<section data-markdown='hoge' id='id'>"] ==\
+            dummyself.body.content
 
-        dummyself = self._getDummySelf()
-        dummynode = self._getDummyNode(**{"data-markdown": ""})
+        dummyself = self._get_dummy_self()
+        dummynode = self._get_dummy_node(**{"data-markdown": ""})
 
-        self._callFUT(dummyself, dummynode)
-        self.assertEqual([
+        self._call_fut(dummyself, dummynode)
+        assert [
             compat.text("<section data-markdown='' id='id'>"),
             compat.text("<script type='text/template'>\n"),
             compat.text('# title \n'),
             compat.text('## subtitle \n'),
             compat.text('rawsource'),
             compat.text('</script>\n')
-        ], dummyself.body.content)
+        ] == dummyself.body.content
 
 
-class DepartRevealjsTest(unittest.TestCase):
+class TestDepartRevealjs(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import depart_revealjs
         return depart_revealjs
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -365,28 +366,28 @@ class DepartRevealjsTest(unittest.TestCase):
         return DummySelf(DummyBody())
 
     def test_it(self):
-        dummyself = self._getDummySelf()
-        self._callFUT(dummyself, None)
-        self.assertEqual('</section>\n', dummyself.body.content[0])
+        dummyself = self._get_dummy_self()
+        self._call_fut(dummyself, None)
+        assert '</section>\n' == dummyself.body.content[0]
 
 
-class VisitRvCodeTest(unittest.TestCase):
+class TestVisitRvCode(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import visit_rv_code
         return visit_rv_code
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummyNode(self, *args, **kwargs):
+    def _get_dummy_node(self, *args, **kwargs):
         class DummyNode(object):
             @property
             def rawsource(self):
                 return "rawsource"
         return DummyNode()
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -406,33 +407,25 @@ class VisitRvCodeTest(unittest.TestCase):
         return DummySelf(DummyBody())
 
     def test_it(self):
-        dummynode = self._getDummyNode()
-        dummyself = self._getDummySelf()
-        self._callFUT(dummyself, dummynode)
-        self.assertEqual(
-            '<pre>',
-            dummyself.body.content[0]
-        )
-        self.assertEqual(
-            '<code data-trim contenteditable>',
+        dummynode = self._get_dummy_node()
+        dummyself = self._get_dummy_self()
+        self._call_fut(dummyself, dummynode)
+        assert '<pre>' == dummyself.body.content[0]
+        assert '<code data-trim contenteditable>' ==\
             dummyself.body.content[1]
-        )
-        self.assertEqual(
-            'rawsource',
-            dummyself.body.content[2]
-        )
+        assert 'rawsource' == dummyself.body.content[2]
 
 
-class DepartRvCodeTest(unittest.TestCase):
+class TestDepartRvCode(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import depart_rv_code
         return depart_rv_code
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -446,35 +439,29 @@ class DepartRvCodeTest(unittest.TestCase):
 
     def test_it(self):
 
-        dummyself = self._getDummySelf()
-        self._callFUT(dummyself, None)
-        self.assertEqual(
-            '</code>',
-            dummyself.body.content[0]
-        )
-        self.assertEqual(
-            '</pre>\n',
-            dummyself.body.content[1]
-        )
+        dummyself = self._get_dummy_self()
+        self._call_fut(dummyself, None)
+        assert '</code>' == dummyself.body.content[0]
+        assert '</pre>\n' == dummyself.body.content[1]
 
 
-class VisitRvSmallTest(unittest.TestCase):
+class TestVisitRvSmall(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import visit_rv_small
         return visit_rv_small
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummyNode(self, *args, **kwargs):
+    def _get_dummy_node(self, *args, **kwargs):
         class DummyNode(object):
             @property
             def rawsource(self):
                 return "rawsource"
         return DummyNode()
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -495,26 +482,23 @@ class VisitRvSmallTest(unittest.TestCase):
         return DummySelf(DummyBody())
 
     def test_it(self):
-        dummynode = self._getDummyNode()
-        dummyself = self._getDummySelf()
-        self._callFUT(dummyself, dummynode)
-        self.assertEqual(
-            '<small>',
-            dummyself.body.content[0]
-        )
-        self.assertTrue(dummyself.first_last)
+        dummynode = self._get_dummy_node()
+        dummyself = self._get_dummy_self()
+        self._call_fut(dummyself, dummynode)
+        assert '<small>' == dummyself.body.content[0]
+        assert True == dummyself.first_last
 
 
-class DepartRvSmallTest(unittest.TestCase):
+class TestDepartRvSmall(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import depart_rv_small
         return depart_rv_small
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -528,31 +512,28 @@ class DepartRvSmallTest(unittest.TestCase):
 
     def test_it(self):
 
-        dummyself = self._getDummySelf()
-        self._callFUT(dummyself, None)
-        self.assertEqual(
-            '</small>\n',
-            dummyself.body.content[0]
-        )
+        dummyself = self._get_dummy_self()
+        self._call_fut(dummyself, None)
+        assert '</small>\n' == dummyself.body.content[0]
 
 
-class VisitRvNoteTest(unittest.TestCase):
+class TestVisitRvNote(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import visit_rv_note
         return visit_rv_note
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummyNode(self, *args, **kwargs):
+    def _get_dummy_node(self, *args, **kwargs):
         class DummyNode(object):
             @property
             def rawsource(self):
                 return "rawsource"
         return DummyNode()
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -574,26 +555,24 @@ class VisitRvNoteTest(unittest.TestCase):
         return DummySelf(DummyBody())
 
     def test_it(self):
-        dummynode = self._getDummyNode()
-        dummyself = self._getDummySelf()
-        self._callFUT(dummyself, dummynode)
-        self.assertEqual(
-            '<aside class="notes">',
+        dummynode = self._get_dummy_node()
+        dummyself = self._get_dummy_self()
+        self._call_fut(dummyself, dummynode)
+        assert '<aside class="notes">' ==\
             dummyself.body.content[0]
-        )
-        self.assertTrue(dummyself.first_last)
+        assert True == dummyself.first_last
 
 
-class DepartRvNoteTest(unittest.TestCase):
+class TestDepartRvNote(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import depart_rv_note
         return depart_rv_note
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
-    def _getDummySelf(self, *args, **kwargs):
+    def _get_dummy_self(self, *args, **kwargs):
         class DummyBody(object):
             content = []
 
@@ -607,22 +586,19 @@ class DepartRvNoteTest(unittest.TestCase):
 
     def test_it(self):
 
-        dummyself = self._getDummySelf()
-        self._callFUT(dummyself, None)
-        self.assertEqual(
-            '</aside>\n',
-            dummyself.body.content[0]
-        )
+        dummyself = self._get_dummy_self()
+        self._call_fut(dummyself, None)
+        assert '</aside>\n' == dummyself.body.content[0]
 
 
-class SetupTest(unittest.TestCase):
+class TestSetup(object):
 
-    def _getTarget(self):
+    def _get_target(self):
         from sphinxjp.themes.revealjs.directives import setup
         return setup
 
-    def _callFUT(self, *args, **kwargs):
-        return self._getTarget()(*args, **kwargs)
+    def _call_fut(self, *args, **kwargs):
+        return self._get_target()(*args, **kwargs)
 
     def test_it(self):
 
@@ -641,29 +617,24 @@ class SetupTest(unittest.TestCase):
                 self.directives.update({name: directive})
 
         dummy_app = DummyApp()
-        self._callFUT(dummy_app)
-        self.assertEqual('Initializing RevealJS theme directives',
-                         dummy_app.info)
+        self._call_fut(dummy_app)
+        assert 'Initializing RevealJS theme directives' == dummy_app.info
 
         from sphinxjp.themes.revealjs import directives as d
 
-        self.assertEqual(d.revealjs, dummy_app.nodes[0][0])
-        self.assertEqual((d.visit_revealjs, d.depart_revealjs),
-                         dummy_app.nodes[0][1])
+        assert d.revealjs == dummy_app.nodes[0][0]
+        assert (d.visit_revealjs, d.depart_revealjs) == dummy_app.nodes[0][1]
 
-        self.assertEqual(d.rv_code, dummy_app.nodes[1][0])
-        self.assertEqual((d.visit_rv_code, d.depart_rv_code),
-                         dummy_app.nodes[1][1])
+        assert d.rv_code == dummy_app.nodes[1][0]
+        assert (d.visit_rv_code, d.depart_rv_code) == dummy_app.nodes[1][1]
 
-        self.assertEqual(d.rv_note, dummy_app.nodes[2][0])
-        self.assertEqual((d.visit_rv_note, d.depart_rv_note),
-                         dummy_app.nodes[2][1])
+        assert d.rv_note == dummy_app.nodes[2][0]
+        assert (d.visit_rv_note, d.depart_rv_note) == dummy_app.nodes[2][1]
 
-        self.assertEqual(d.rv_small, dummy_app.nodes[3][0])
-        self.assertEqual((d.visit_rv_small, d.depart_rv_small),
-                         dummy_app.nodes[3][1])
+        assert d.rv_small == dummy_app.nodes[3][0]
+        assert (d.visit_rv_small, d.depart_rv_small) == dummy_app.nodes[3][1]
 
-        self.assertEqual(d.RevealjsDirective, dummy_app.directives['revealjs'])
-        self.assertEqual(d.RvCodeDirective, dummy_app.directives['rv_code'])
-        self.assertEqual(d.RvNoteDirective, dummy_app.directives['rv_note'])
-        self.assertEqual(d.RvSmallDirective, dummy_app.directives['rv_small'])
+        assert d.RevealjsDirective == dummy_app.directives['revealjs']
+        assert d.RvCodeDirective == dummy_app.directives['rv_code']
+        assert d.RvNoteDirective == dummy_app.directives['rv_note']
+        assert d.RvSmallDirective == dummy_app.directives['rv_small']

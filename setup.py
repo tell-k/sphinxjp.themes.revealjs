@@ -1,11 +1,40 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup, find_packages
+import sys
 import os
 
-version = '0.2.1'
+from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
+
+version = '0.2.2'
+
+
+class PyTest(TestCommand):
+    user_options = [('pytest-args=', 'a', "Arguments to pass to py.test")]
+
+    def initialize_options(self):
+        TestCommand.initialize_options(self)
+        self.pytest_args = []
+
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        # import here, cause outside the eggs aren't loaded
+        import pytest
+        errno = pytest.main(self.pytest_args)
+        sys.exit(errno)
 
 requires = [
+    "setuptools",
+    "Sphinx",
+]
 
+tests_require = [
+    "pytest-cov",
+    "pytest",
+    "mock",
 ]
 
 long_description = '\n'.join([
@@ -19,7 +48,11 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 2.6",
+    "Programming Language :: Python :: 2.7",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.3",
+    "Programming Language :: Python :: 3.4",
     "Topic :: Software Development",
     "Topic :: Software Development :: Documentation",
     "Topic :: Text Processing :: Markup",
@@ -41,15 +74,9 @@ setup(
     namespace_packages=['sphinxjp', 'sphinxjp.themes'],
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    package_data={'': ['buildout.cfg']},
-    include_package_data=True,
-    install_requires=[
-        'setuptools',
-        'Sphinx',
-    ],
-    test_suite='nose.collector',
-    tests_require=['nose', 'flake8', 'mock', 'coverage'],
-    extras_require=dict(test=['nose', 'flake8', 'mock', 'coverage']),
+    cmdclass={'test': PyTest},
+    install_requires=requires,
+    tests_require=tests_require,
     entry_points="""
         [sphinx_themes]
         path = sphinxjp.themes.revealjs:template_path

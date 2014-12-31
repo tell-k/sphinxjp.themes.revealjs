@@ -1,6 +1,13 @@
 History
 =======
 
+0.2.2 (Dec 31, 2014)
+---------------------
+* Drop Python-3.2 support #3
+* Remove bootstrap.py and buildout.cfg.
+* Support wheel format.
+* Change test runner(nose -> py.test).
+
 0.2.1 (Sep 20, 2014)
 ---------------------
 * Fixed bug. "default theme.conf can't work.#1"
