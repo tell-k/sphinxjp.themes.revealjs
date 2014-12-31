@@ -19,7 +19,6 @@ class TestGetPath(object):
         return self._get_target()(*args, **kwargs)
 
     def test_it(self):
-        import sphinxjp
         from sphinxjp.themes import revealjs
         assert revealjs.template_path == self._call_fut()
 
