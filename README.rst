@@ -508,7 +508,7 @@ It is also possible to change the settings by using the Javascript.
 
 Requirement
 =============
-* Python 2.7 or later
+* Python 2.6, 2.7, 3.3, 3.4, or later
 * Sphinx 1.2.x or later.
 
 Using

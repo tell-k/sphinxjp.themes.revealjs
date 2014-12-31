@@ -504,7 +504,7 @@ It is also possible to change the settings by using the Javascript.
 
 Requirement
 =============
-* Python 2.7 or later
+* Python 2.6, 2.7, 3.3, 3.4, or later
 * Sphinx 1.2.x or later.
 
 Using
@@ -516,7 +516,7 @@ License
 =======
 
 * sphinxjp.themes.revealjs Licensed under the `MIT license <http://www.opensource.org/licenses/mit-license.php>`_ .
-* `Reveal.js is licensed under the MIT licence <https://github.com/hakimel/reveal.js/blob/master/LICENSE>`_.
+* `reveal.js is licensed under the MIT licence <https://github.com/hakimel/reveal.js/blob/master/LICENSE>`_.
 
 See the LICENSE file for specific terms.
 
