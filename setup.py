@@ -5,7 +5,7 @@ import os
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
-version = '0.2.2'
+version = '0.2.3'
 
 
 class PyTest(TestCommand):
@@ -72,7 +72,7 @@ setup(
     url='https://github.com/tell-k/sphinxjp.themes.revealjs',
     license='MIT',
     namespace_packages=['sphinxjp', 'sphinxjp.themes'],
-    packages=find_packages('src'),
+    packages=find_packages('src', exclude=["tests"]),
     package_dir={'': 'src'},
     cmdclass={'test': PyTest},
     install_requires=requires,

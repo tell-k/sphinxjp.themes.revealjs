@@ -8,7 +8,7 @@ master_doc = 'index'
 project = u'sphinx theme for reveal.js'
 copyright = u'2014, tell-k'
 
-version = '0.2.2'
+version = '0.2.3'
 
 # -- Options for HTML output --------------------------------------
 

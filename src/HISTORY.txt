@@ -1,6 +1,10 @@
 History
 =======
 
+0.2.3(Jan 1, 2015)
+---------------------
+* Exclude test code from installed packages
+
 0.2.2 (Dec 31, 2014)
 ---------------------
 * Drop Python-3.2 support #3
