@@ -119,7 +119,7 @@ You can set subtitle text.
 ::
 
   .. revealjs:: Slide Title
-     :subtitle:: Subtitle Text
+     :subtitle: Subtitle Text
 
 
 subtitle-heading
