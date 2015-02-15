@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+import re
 
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
-
-version = '0.2.3'
 
 
 class PyTest(TestCommand):
@@ -26,7 +25,14 @@ class PyTest(TestCommand):
         errno = pytest.main(self.pytest_args)
         sys.exit(errno)
 
-requires = [
+here = os.path.dirname(__file__)
+
+version_regex = re.compile(r".*__version__ = '(.*?)'", re.S)
+version_script = os.path.join(here, 'src', 'sphinxjp',
+                              'themes', 'revealjs', '__init__.py')
+version = version_regex.match(open(version_script, 'r').read()).group(1)
+
+install_requires = [
     "setuptools",
     "Sphinx",
 ]
@@ -38,9 +44,9 @@ tests_require = [
 ]
 
 long_description = '\n'.join([
-    open(os.path.join("src", "README.txt")).read(),
-    open(os.path.join("src", "AUTHORS.txt")).read(),
-    open(os.path.join("src", "HISTORY.txt")).read(),
+    open(os.path.join(here, "src", "README.txt")).read(),
+    open(os.path.join(here, "src", "AUTHORS.txt")).read(),
+    open(os.path.join(here, "src", "HISTORY.txt")).read(),
 ])
 
 classifiers = [
@@ -75,7 +81,7 @@ setup(
     packages=find_packages('src', exclude=["tests"]),
     package_dir={'': 'src'},
     cmdclass={'test': PyTest},
-    install_requires=requires,
+    install_requires=install_requires,
     tests_require=tests_require,
     include_package_data=True,
     entry_points="""

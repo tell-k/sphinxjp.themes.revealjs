@@ -4,7 +4,7 @@ sphinxjp.themes.revealjs 0.2.3
 
 reveal.js style presentation theme for Sphinx.
 
-|travis| |coveralls| |downloads| |version| |license|
+|travis| |coveralls| |downloads| |version| |license| |requires|
 
 
 Output Sample
@@ -543,3 +543,8 @@ See the LICENSE file for specific terms.
 .. |license| image:: https://pypip.in/license/sphinxjp.themes.revealjs/badge.png
     :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
     :alt: license
+
+.. |requires| image:: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements.svg?branch=master
+    :target: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements/?branch=master
+    :alt: requires.io
+

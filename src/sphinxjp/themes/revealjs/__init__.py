@@ -10,6 +10,8 @@
 from os import path
 from sphinxjp.themes.revealjs import directives
 
+__version__ = '0.2.3'
+
 package_dir = path.abspath(path.dirname(__file__))
 template_path = path.join(package_dir, 'templates')
 

@@ -10,5 +10,6 @@ parts
 *.egg
 *.egg-info
 *.*~
+.eggs
 .coverage
 .tox

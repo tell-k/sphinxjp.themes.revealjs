@@ -84,7 +84,7 @@ class TestRevealjsDirective(object):
         nodes = directive.run()
         assert 1 == len(nodes)
         assert 'tell-k test' == nodes[0]['title']
-        assert False == nodes[0]['noheading']
+        assert False is nodes[0]['noheading']
         assert [] == nodes[0]['classes']
 
     def test_class_option(self):
@@ -101,7 +101,7 @@ class TestRevealjsDirective(object):
         }))
         directive.state = self._get_dummy_config()
         nodes = directive.run()
-        assert True == nodes[0]['noheading']
+        assert True is nodes[0]['noheading']
 
     def test_other_options(self):
         directive = self._make_one(**self._get_params(options={
@@ -486,7 +486,7 @@ class TestVisitRvSmall(object):
         dummyself = self._get_dummy_self()
         self._call_fut(dummyself, dummynode)
         assert '<small>' == dummyself.body.content[0]
-        assert True == dummyself.first_last
+        assert True is dummyself.first_last
 
 
 class TestDepartRvSmall(object):
@@ -560,7 +560,7 @@ class TestVisitRvNote(object):
         self._call_fut(dummyself, dummynode)
         assert '<aside class="notes">' ==\
             dummyself.body.content[0]
-        assert True == dummyself.first_last
+        assert True is dummyself.first_last
 
 
 class TestDepartRvNote(object):
