@@ -1,6 +1,6 @@
 reveal.js style presentation theme for Sphinx.
 
-|travis| |coveralls| |downloads| |version| |license|
+|travis| |coveralls| |downloads| |version| |license| |requires|
 
 
 Output Sample
@@ -20,11 +20,6 @@ Set up
 Make environment with pip::
 
     $ pip install sphinxjp.themes.revealjs
-
-Make environment with easy_install::
-
-    $ easy_install sphinxjp.themes.revealjs
-
 
 Convert Usage
 =============
@@ -115,7 +110,7 @@ You can set subtitle text.
 ::
 
   .. revealjs:: Slide Title
-     :subtitle:: Subtitle Text
+     :subtitle: Subtitle Text
 
 
 subtitle-heading
@@ -171,14 +166,12 @@ data-transition
 
 Change transition style by the following pattern.
 
-* default
-* cube
-* page
+* none
+* fade
+* slide
+* convex(=default)
 * concave
 * zoom
-* linear
-* fade
-* none
 
 ::
 
@@ -295,116 +288,108 @@ By changing html_theme_options, you can change the settings for the whole.
 
 ::
 
-  html_theme_options = {
 
-   # Set the lang attribute of the html tag. Defaults to "ja"
-   "lang": "ja",
+ html_theme_options = {
+     # Set the lang attribute of the html tag. Defaults to "ja"
+     "lang": "ja",
 
-   # The "normal" size of the presentation, aspect ratio will be preserved
-   # when the presentation is scaled to fit different resolutions
-   "width": 960,
-   "height": 700,
+     # The "normal" size of the presentation, aspect ratio will be preserved
+     # when the presentation is scaled to fit different resolutions
+     "width": 960,
+     "height": 700,
 
-   # Factor of the display size that should remain empty around the content
-   "margin": 0.1,
+     # Factor of the display size that should remain empty around the content
+     "margin": 0.1,
 
-   # Bounds for smallest/largest possible scale to apply to content
-   "min_scale": 0.2,
-   "max_scale": 1.0,
+     # Bounds for smallest/largest possible scale to apply to content
+     "min_scale": 0.2,
+     "max_scale": 1.0,
 
-   # Display controls in the bottom right corner
-   "controls": True,
+     # Display controls in the bottom right corner
+     "controls": True,
 
-   # Display a presentation progress bar
-   "progress": True,
+     # Display a presentation progress bar
+     "progress": True,
 
-   # Push each slide change to the browser history
-   "history": True,
+     # Push each slide change to the browser history
+     "history": True,
 
-   # Enable keyboard shortcuts for navigation
-   "keyboard": True,
+     # Enable keyboard shortcuts for navigation
+     "keyboard": True,
 
-   # Enable the slide overview mode
-   "overview": True,
+     # Enable the slide overview mode
+     "overview": True,
 
-   # Vertical centring of slides
-   "center": True,
+     # Vertical centring of slides
+     "center": True,
 
-   # Enables touch navigation on devices with touch input
-   "touch": True,
+     # Enables touch navigation on devices with touch input
+     "touch": True,
 
-   # Loop the presentation
-   "loop": False,
+     # Loop the presentation
+     "loop": False,
 
-   # Change the presentation direction to be RTL
-   "rtl": False,
+     # Change the presentation direction to be RTL
+     "rtl": False,
 
-   # Turns fragments on and off globally
-   "fragments": True,
+     # Turns fragments on and off globally
+     "fragments": True,
 
-   # Number of milliseconds between automatically proceeding to the
-   # next slide, disabled when set to 0, this value can be overwritten
-   # by using a data-autoslide attribute on your slides
-   "auto_slide": 0,
+     # Number of milliseconds between automatically proceeding to the
+     # next slide, disabled when set to 0, this value can be overwritten
+     # by using a data-autoslide attribute on your slides
+     "auto_slide": 0,
 
-   # Enable slide navigation via mouse wheel
-   "mouse_wheel": False,
+     # Enable slide navigation via mouse wheel
+     "mouse_wheel": False,
 
-   # Apply a 3D roll to links on hover
-   "rolling_links": True,
+     # Apply a 3D roll to links on hover
+     "rolling_links": True,
 
-   # Opens links in an iframe preview overlay
-   "preview_links": False,
+     # Opens links in an iframe preview overlay
+     "preview_links": False,
 
-   # Theme (default/blood/beige/moon/night/serif/simple/sky/solarized)
-   "theme": "blood",
+     # Theme (black/white/league/beige/sky/night/serif/simple/solarized)
+     "theme": "black",
 
-   # Transition style (default/cube/page/concave/zoom/linear/fade/none)
-   "transition": "default",
+     # Transition style (default(=convex)/none/fade/slide/concave/zoom)
+     "transition": "default",
 
-   # Transition speed (default/fast/slow)
-   "transition_speed": "default",
+     # Transition speed (default/fast/slow)
+     "transition_speed": "default",
 
-   # Transition style for full page slide backgrounds (default/linear)
-   "background_transition": "default",
+     # Transition style for full page slide backgrounds (default(=convex)/none/fade/slide/concave/zoom)
+     "background_transition": "default",
 
-   # Display the page number of the current slide
-   "slide_number": False,
+     # Display the page number of the current slide
+     "slide_number": False,
 
-   # Flags if the presentation is running in an embedded mode,
-   # i.e. contained within a limited portion of the screen
-   "embedded": False,
+     # Flags if the presentation is running in an embedded mode,
+     # i.e. contained within a limited portion of the screen
+     "embedded": False,
 
-   # Stop auto-sliding after user input
-   "auto_slide_stoppable": True,
+     # Stop auto-sliding after user input
+     "auto_slide_stoppable": True,
 
-   # Hides the address bar on mobile devices
-   "hide_address_bar": True,
+     # Hides the address bar on mobile devices
+     "hide_address_bar": True,
 
-   # Parallax background image
-   # CSS syntax, e.g. "a.jpg"
-   "parallax_background_image": 'a.jpg',
+     # Parallax background image
+     # CSS syntax, e.g. "a.jpg"
+     #"parallax_background_image": '_static/bg.jpg',
 
-   # Parallax background size
-   # CSS syntax, e.g. "3000px 2000px"
-   "parallax_background_size": '3000px 2000px',
+     # Parallax background size
+     # CSS syntax, e.g. "3000px 2000px"
+     #"parallax_background_size": '2000px 900px',
 
-   # Focuses body when page changes visibility to ensure keyboard shortcuts work
-   "focus_body_on_page_visibility_change": True,
+     # Focuses body when page changes visibility
+     # to ensure keyboard shortcuts work
+     "focus_body_on_page_visibility_change": True,
 
-   # Number of slides away from the current that are visible
-   "view_distance": 3,
+     # Number of slides away from the current that are visible
+     "view_distance": 3,
+ }
 
-   # Enable plguin javascript for reveal.js
-   "plugin_list": [
-     "_static/plugin/leap/leap.js",
-     "_static/plugin/multiplex/master.js",
-     "_static/plugin/search/search.js",
-     "_static/plugin/remotes/remotes.js"
-     "_static/plugin/notes-server/client.js",
-   ],
-
-  }
 
 Multiplexing
 --------------------
@@ -486,16 +471,16 @@ It is also possible to change the settings by using the Javascript.
 1. create 'mysettings.js'.
 
   ::
-  
+
    // Turn autoSlide off
    Reveal.configure({ autoSlide: 0 });
 
 2. change conf.py
 
   ::
-  
+
    html_static_path = ['_static']
-  
+
    html_theme_options = {
     # loading custom js after RevealJs.initialize.
     "customjs": "mysettings.js",
@@ -509,7 +494,7 @@ Requirement
 
 Using
 =============
-* `Reveal.js 2.6.2 <http://lab.hakim.se/reveal-js/#/>`_
+* `Reveal.js 3.0.0 <http://lab.hakim.se/reveal-js/#/>`_
 * `jQuery 1.11.2 <http://jquery.com/>`_
 
 License
@@ -539,3 +524,8 @@ See the LICENSE file for specific terms.
 .. |license| image:: https://pypip.in/license/sphinxjp.themes.revealjs/badge.png
     :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
     :alt: license
+
+.. |requires| image:: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements.svg?branch=master
+    :target: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements/?branch=master
+    :alt: requires.io
+
