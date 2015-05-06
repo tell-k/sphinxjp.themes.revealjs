@@ -24,12 +24,12 @@ Master layout template for Sphinx themes.
 {%- macro script() %}
 <script src="{{ pathto('_static/js/jquery.min.js', 1) }}"></script>
 <script src="{{ pathto('_static/lib/js/head.min.js', 1) }}"></script>
-<script src="{{ pathto('_static/js/reveal.min.js', 1) }}"></script>
+<script src="{{ pathto('_static/js/reveal.js', 1) }}"></script>
 {%- endmacro %}
 
 {%- macro css() %}
-<link rel="stylesheet" href="{{ pathto('_static/css/reveal.min.css', 1) }}">
-<link rel="stylesheet" href="{{ pathto('_static/css/theme/default.css', 1) }}" id="theme">
+<link rel="stylesheet" href="{{ pathto('_static/css/reveal.css', 1) }}">
+<link rel="stylesheet" href="{{ pathto('_static/css/theme/' + (theme_theme or 'black') + '.css', 1) }}" id="theme">
 <link rel="stylesheet" href="{{ pathto('_static/lib/css/zenburn.css', 1) }}">
 <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
 {%- for cssfile in css_files %}
@@ -135,7 +135,6 @@ Master layout template for Sphinx themes.
 
         viewDistance: {{ theme_view_distance }},
 
-        theme: Reveal.getQueryHash().theme || "{{ theme_theme }}",
         transition: Reveal.getQueryHash().transition || "{{ theme_transition }}",
 
         {% if theme_multiplex %}

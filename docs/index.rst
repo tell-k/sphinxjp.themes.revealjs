@@ -84,6 +84,24 @@ sphinxjp.themes.revealjs
  #. Two is smaller than...
  #. Three!
 
+.. revealjs:: Tabular Tables
+
+ .. list-table::
+   :header-rows: 1
+
+   * - Item
+     - Value
+     - Quantity
+   * - Apple
+     - $1
+     - 7
+   * - Lemonade
+     - $2
+     - 18
+   * - Bread
+     - $3
+     - 2
+
 .. revealjs:: Markdown support
  :data-markdown:
 
@@ -100,8 +118,8 @@ sphinxjp.themes.revealjs
 .. revealjs:: External Markdown
  :data-markdown: _static/external.md
  :data-separator: ^\n\n\n
- :data-vertical: ^\n\n
- :data-notes: ^Speaker:
+ :data-separator-vertical: ^\n\n
+ :data-separator-notes: ^Speaker:
 
 
 .. revealjs:: Transition Styles
@@ -109,33 +127,32 @@ sphinxjp.themes.revealjs
 
  You can select from different transitions, like:
 
- `Cube <?transition=cube#/transitions>`_ -
- `Page <?transition=page#/transitions>`_ -
+ `Convex <?transition=convex#/transitions>`_ -
+ `None <?transition=none#/transitions>`_ -
+ `Fade <?transition=fade#/transitions>`_ -
+ `Slide <?transition=slide#/transitions>`_ -
  `Concave <?transition=concave#/transitions>`_ -
  `Zoom <?transition=zoom#/transitions>`_ -
- `Liner <?transition=liner#/transitions>`_ -
- `Fade <?transition=fade#/transitions>`_ -
- `None <?transition=none#/transitions>`_ -
- `Default Transition <?transition=default#/transitions>`_
 
 .. revealjs:: Themes
  :id: themes
 
- Reveal.js comes with a few themes built in:
+ reveal.js comes with a few themes built in:
 
- `Sky <?theme=sky#/themes>`_ -
- `Beige <?theme=beige#/themes>`_ -
- `Blood <?theme=blood#/themes>`_ -
- `Moon <?theme=moon#/themes>`_ -
- `Simple <?theme=simple#/themes>`_ -
- `Serif <?theme=serif#/themes>`_ -
- `Night <?theme=night#/themes>`_ -
- `Solarized <?theme=solarized#/themes>`_ -
- `Default Theme <?theme=default#/themes>`_
+ .. raw:: html
 
- .. rv_small::
+   <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/black.css'); return false;">Black (default)</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/white.css'); return false;">White</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/league.css'); return false;">League</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/sky.css'); return false;">Sky</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/beige.css'); return false;">Beige</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/simple.css'); return false;">Simple</a> <br>
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/serif.css'); return false;">Serif</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/night.css'); return false;">Night</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/moon.css'); return false;">Moon</a> -
+   <a href="#" onclick="document.getElementById('theme').setAttribute('href','_static/css/theme/solarized.css'); return false;">Solarized</a>
 
-  * Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the :code:`<head>` using a :code:`<link>`.
 
 .. revealjs:: Global State
 

@@ -4,8 +4,8 @@
 .. revealjs:: External Markdown
  :data-markdown: _static/external.md
  :data-separator: ^\n\n\n
- :data-vertical: ^\n\n
- :data-notes: ^Note:
+ :data-separator-vertical: ^\n\n
+ :data-separator-notes: ^Note:
 
 Note:
 This will only display in the notes window.

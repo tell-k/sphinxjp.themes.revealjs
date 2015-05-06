@@ -63,8 +63,8 @@ class RevealjsDirective(Directive):
         'data-background-transition': directives.unchanged,
         'data-state': directives.unchanged,
         'data-separator': directives.unchanged,
-        'data-vertical': directives.unchanged,
-        'data-notes': directives.unchanged,
+        'data-separator-vertical': directives.unchanged,
+        'data-separator-notes': directives.unchanged,
         'data-charset': directives.unchanged,
     }
 
@@ -102,8 +102,8 @@ class RevealjsDirective(Directive):
             'data-state',
             'data-markdown',
             'data-separator',
-            'data-vertical',
-            'data-notes',
+            'data-separator-vertical',
+            'data-separator-notes',
             'data-charset',
         )
         for option in options_list:
@@ -203,8 +203,8 @@ def visit_revealjs(self, node):
         'data-state',
         'data-markdown',
         'data-separator',
-        'data-vertical',
-        'data-notes',
+        'data-separator-vertical',
+        'data-separator-notes',
         'data-charset',
     )
     for attr in attr_list:
