@@ -512,24 +512,22 @@ See the LICENSE file for specific terms.
 .. |travis| image:: https://travis-ci.org/tell-k/sphinxjp.themes.revealjs.svg?branch=master
     :target: https://travis-ci.org/tell-k/sphinxjp.themes.revealjs
 
-
 .. |coveralls| image:: https://coveralls.io/repos/tell-k/sphinxjp.themes.revealjs/badge.png
-    :target: https://coveralls.io/r/tell-k/sphinxjp.themes.revealjs/
+    :target: https://coveralls.io/r/tell-k/sphinxjp.themes.revealjs
     :alt: coveralls.io
 
-.. |downloads| image:: https://pypip.in/d/sphinxjp.themes.revealjs/badge.png
+.. |requires| image:: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements.svg?tag=v0.1.1
+     :target: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements/?tag=v0.1.1
+     :alt: requires.io
+
+.. |downloads| image:: https://img.shields.io/pypi/dm/sphinxjp.themes.revealjs.svg
     :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
     :alt: downloads
 
-.. |version| image:: https://pypip.in/v/sphinxjp.themes.revealjs/badge.png
+.. |version| image:: https://img.shields.io/pypi/v/sphinxjp.themes.revealjs.svg
     :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
     :alt: latest version
 
-.. |license| image:: https://pypip.in/license/sphinxjp.themes.revealjs/badge.png
+.. |license| image:: https://img.shields.io/pypi/l/sphinxjp.themes.revealjs.svg
     :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
     :alt: license
-
-.. |requires| image:: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements.svg?branch=master
-    :target: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements/?branch=master
-    :alt: requires.io
-
