@@ -15,8 +15,8 @@ Output Sample
 
 Features
 ========
-* provide ``revealjs`` directive for reveal.js presetation slide control.
-* provide ``revealjs`` theme for render presetation.
+* provide ``revealjs`` directive for reveal.js presentation slide control.
+* provide ``revealjs`` theme for render presentation.
 
 
 Set up
@@ -43,7 +43,7 @@ Writing Custom Directives
 revealjs
 --------------------
 
-This directive crate a slide section for reveal.js.
+This directive creates a slide section for reveal.js.
 
 ::
 
@@ -324,7 +324,7 @@ By changing html_theme_options, you can change the settings for the whole.
      # Enable the slide overview mode
      "overview": True,
 
-     # Vertical centring of slides
+     # Vertical centering of slides
      "center": True,
 
      # Enables touch navigation on devices with touch input
@@ -339,8 +339,8 @@ By changing html_theme_options, you can change the settings for the whole.
      # Turns fragments on and off globally
      "fragments": True,
 
-     # Number of milliseconds between automatically proceeding to the
-     # next slide, disabled when set to 0, this value can be overwritten
+     # Number of milliseconds before automatically proceeding to the
+     # next slide. Disabled when set to 0. This value can be overwritten
      # by using a data-autoslide attribute on your slides
      "auto_slide": 0,
 

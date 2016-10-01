@@ -11,8 +11,8 @@ Output Sample
 
 Features
 ========
-* provide ``revealjs`` directive for reveal.js presetation slide control.
-* provide ``revealjs`` theme for render presetation.
+* provide ``revealjs`` directive for reveal.js presentation slide control.
+* provide ``revealjs`` theme for rendering presentations.
 
 
 Set up
