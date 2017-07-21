@@ -470,7 +470,7 @@ https://github.com/hakimel/reveal.js#mathjax
 Setting with  Javascript
 --------------------------
 
-It is also possible to change the settings by using the Javascript.
+It is also possible to change the settings by using the Javascript & CSS.
 
 1. create 'mysettings.js'.
 
@@ -488,6 +488,9 @@ It is also possible to change the settings by using the Javascript.
    html_theme_options = {
     # loading custom js after RevealJs.initialize.
     "customjs": "mysettings.js",
+    # loading custom css
+    customcss : "mysettings.css",
+
    }
 
 

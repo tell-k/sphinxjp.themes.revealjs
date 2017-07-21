@@ -32,6 +32,10 @@ Master layout template for Sphinx themes.
 <link rel="stylesheet" href="{{ pathto('_static/css/theme/' + (theme_theme or 'black') + '.css', 1) }}" id="theme">
 <link rel="stylesheet" href="{{ pathto('_static/lib/css/zenburn.css', 1) }}">
 <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+{% if theme_customcss  -%}
+<link rel="stylesheet" href="{{ pathto('_static/' + theme_customcss, 1) }}"> type="text/css" />
+{% endif  %}
+
 {%- for cssfile in css_files %}
 <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
 {%- endfor %}
