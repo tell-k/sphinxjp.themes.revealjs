@@ -10,11 +10,11 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 from docutils.parsers.rst.roles import set_classes
 
-from sphinx.util.compat import Directive
+from docutils.parsers.rst import Directive
 
 from sphinxjp.themes.revealjs import compat
 
-__docformat__ = 'reStrructuredText'
+__docformat__ = 'reStructuredText'
 
 
 class revealjs(nodes.General, nodes.Element):
