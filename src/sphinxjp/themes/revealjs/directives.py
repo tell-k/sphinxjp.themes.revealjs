@@ -172,7 +172,10 @@ class RvCodeDirective(Directive):
     required_arguments = 0
     optional_arguments = 0
     final_argument_whitespace = False
-    option_spec = {}
+    option_spec = {
+        'id': directives.unchanged,
+        'class': directives.class_option,
+    }
     node_class = rv_code
 
     def run(self):
