@@ -280,7 +280,7 @@ def visit_rv_code(self, node):
 
     self.body.append(self.starttag(node, 'pre'))
     self.body.append("<code data-trim contenteditable>")
-    self.body.append(node.rawsource)
+    self.body.append(compat.escape_html(node.rawsource))
 
 
 def depart_rv_code(self, node=None):
