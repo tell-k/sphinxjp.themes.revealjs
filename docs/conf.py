@@ -155,7 +155,7 @@ html_theme_options = {
     # "customjs": "mysettings.js",
 
     # loading custom CSS
-    # "customjs": "mysettings.css",
+    # "customcss": "mysettings.css",
 }
 
 html_static_path = ['_static']
