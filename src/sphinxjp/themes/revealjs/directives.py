@@ -55,12 +55,23 @@ class RevealjsDirective(Directive):
         'subtitle-heading': directives.unchanged,
         'data-autoslide': directives.unchanged,
         'data-markdown': directives.unchanged,
+        'data-template': directives.unchanged, # new
         'data-transition': directives.unchanged,
         'data-transition-speed': directives.unchanged,
         'data-background': directives.unchanged,
+        'data-background-color': directives.unchanged, # new
+        'data-background-image': directives.unchanged, # new
         'data-background-repeat': directives.unchanged,
         'data-background-size': directives.unchanged,
         'data-background-transition': directives.unchanged,
+        'data-background-position': directives.unchanged, # new
+        'data-background-video': directives.unchanged, # new
+        'data-background-video-loop': directives.unchanged, # new
+        'data-background-video-muted': directives.unchanged, # new
+        'data-background-iframe': directives.unchanged, # new
+        'data-background-interactive': directives.unchanged, # new
+        'data-trim': directives.unchanged, # new
+        'data-noescape': directives.unchanged, # new
         'data-state': directives.unchanged,
         'data-separator': directives.unchanged,
         'data-separator-vertical': directives.unchanged,
@@ -96,6 +107,7 @@ class RevealjsDirective(Directive):
             'data-transition',
             'data-transition-speed',
             'data-background',
+            'data-background-color',
             'data-background-repeat',
             'data-background-size',
             'data-background-transition',

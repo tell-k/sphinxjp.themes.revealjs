@@ -4,7 +4,7 @@ sphinxjp.themes.revealjs 0.3.0
 
 reveal.js style presentation theme for Sphinx.
 
-|travis| |coveralls| |downloads| |version| |license| |requires|
+|travis| |coveralls| |version| |license| |requires|
 
 
 Output Sample
@@ -498,8 +498,8 @@ Requirement
 
 Using
 =============
-* `Reveal.js 3.0.0 <http://lab.hakim.se/reveal-js/#/>`_
-* `jQuery 1.11.2 <http://jquery.com/>`_
+* `Reveal.js 3.6.0 <http://lab.hakim.se/reveal-js/#/>`_
+* `jQuery 3.14 <http://jquery.com/>`_
 
 License
 =======
@@ -519,10 +519,6 @@ See the LICENSE file for specific terms.
 .. |requires| image:: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements.svg?tag=v0.1.1
      :target: https://requires.io/github/tell-k/sphinxjp.themes.revealjs/requirements/?tag=v0.1.1
      :alt: requires.io
-
-.. |downloads| image:: https://img.shields.io/pypi/dm/sphinxjp.themes.revealjs.svg
-    :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
-    :alt: downloads
 
 .. |version| image:: https://img.shields.io/pypi/v/sphinxjp.themes.revealjs.svg
     :target: http://pypi.python.org/pypi/sphinxjp.themes.revealjs/
