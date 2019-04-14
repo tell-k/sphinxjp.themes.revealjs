@@ -270,7 +270,8 @@ def visit_revealjs(self, node):
             self.body.append(title_text)
         if subtitle_text:
             self.body.append(subtitle_text)
-        self.set_first_last(node)
+        self.set_class_on_child(node, 'first', 0)
+        self.set_class_on_child(node, 'last', -1)
 
 
 def depart_revealjs(self, node=None):
@@ -296,7 +297,8 @@ def depart_rv_code(self, node=None):
 def visit_rv_small(self, node):
     """ build start tag for rv_small """
     self.body.append(self.starttag(node, 'small'))
-    self.set_first_last(node)
+    self.set_class_on_child(node, 'first', 0)
+    self.set_class_on_child(node, 'last', -1)
 
 
 def depart_rv_small(self, node=None):
@@ -307,7 +309,8 @@ def depart_rv_small(self, node=None):
 def visit_rv_note(self, node):
     """ build start tag for rv_note """
     self.body.append(self.starttag(node, 'aside', **{'class': 'notes'}))
-    self.set_first_last(node)
+    self.set_class_on_child(node, 'first', 0)
+    self.set_class_on_child(node, 'last', -1)
 
 
 def depart_rv_note(self, node=None):
