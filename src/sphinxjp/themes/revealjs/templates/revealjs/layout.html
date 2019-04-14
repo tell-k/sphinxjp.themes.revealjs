@@ -18,7 +18,6 @@ Master layout template for Sphinx themes.
 
 {%- macro script() %}
 <script src="{{ pathto('_static/js/jquery.min.js', 1) }}"></script>
-<script src="{{ pathto('_static/lib/js/head.min.js', 1) }}"></script>
 <script src="{{ pathto('_static/js/reveal.js', 1) }}"></script>
 {%- endmacro %}
 
@@ -168,7 +167,6 @@ Master layout template for Sphinx themes.
         {% endif %}
 
         dependencies: [
-           { src: '{{ pathto('_static/lib/js/classList.js', 1) }}', condition: function() { return !document.body.classList; } },
            { src: '{{ pathto('_static/plugin/markdown/marked.js', 1) }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
            { src: '{{ pathto('_static/plugin/markdown/markdown.js', 1) }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
            { src: '{{ pathto('_static/plugin/highlight/highlight.js', 1) }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
