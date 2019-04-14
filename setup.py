@@ -87,12 +87,5 @@ setup(
     install_requires=install_requires,
     tests_require=tests_require,
     include_package_data=True,
-    entry_points="""
-        [sphinx_themes]
-        path = sphinxjp.themes.revealjs:template_path
-
-        [sphinx_directives]
-        setup = sphinxjp.themes.revealjs:setup
-    """,
     zip_safe=False
 )

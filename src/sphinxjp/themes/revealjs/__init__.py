@@ -24,3 +24,4 @@ def get_path():
 def setup(app):
     """entry-point for sphinx  directive."""
     directives.setup(app)
+    app.add_html_theme('revealjs', template_path)
