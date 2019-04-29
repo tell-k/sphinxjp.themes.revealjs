@@ -501,8 +501,9 @@ Requirement
 
 Using
 =============
-* `Reveal.js 3.0.0 <http://lab.hakim.se/reveal-js/#/>`_
-* `jQuery 1.11.2 <http://jquery.com/>`_
+
+* `Reveal.js 3.8.0 <http://lab.hakim.se/reveal-js/#/>`_
+* `jQuery 3.4.0 <http://jquery.com/>`_
 
 License
 =======
