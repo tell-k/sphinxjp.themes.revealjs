@@ -1,27 +1,27 @@
 /**
  * DejaVu theme for reveal.js.
  *
+ * Offline theme using embedded DejaVu fonts.
  */
-@import url(../../DejaVu/dejavu.css);
-
+@import url(../../lib/font/dejavu/dejavu.css);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #1c1e20;
-  background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #1c1e20));
-  background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: -o-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
-  background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: #141618;
+  background: -moz-radial-gradient(center, circle cover, #4b5055 0%, #141618 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #4b5055), color-stop(100%, #141618));
+  background: -webkit-radial-gradient(center, circle cover, #4b5055 0%, #141618 100%);
+  background: -o-radial-gradient(center, circle cover, #4b5055 0%, #141618 100%);
+  background: -ms-radial-gradient(center, circle cover, #4b5055 0%, #141618 100%);
+  background: radial-gradient(center, circle cover, #4b5055 0%, #141618 100%);
   background-color: #2b2b2b; }
 
 .reveal {
   font-family: "DejaVu Serif", serif;
-  font-size: 37px;
+  font-size: 34px;
   font-weight: normal;
-  color: #eee; }
+  color: #f6f6ff; }
 
 ::selection {
   color: #fff;
@@ -48,29 +48,29 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #eee;
+  color: #F9B837;
   font-family: "DejaVu Sans Condensed", sans-serif;
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.77em; }
+  font-size: 3em; }
 
 .reveal h2 {
-  font-size: 2.11em; }
+  font-size: 2.1em; }
 
 .reveal h3 {
-  font-size: 1.55em; }
+  font-size: 1.7em; }
 
 .reveal h4 {
-  font-size: 1em; }
+  font-size: 1.2em; }
 
 .reveal h1 {
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15); }
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
 
 /*********************************************
  * OTHER
@@ -233,7 +233,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #eee;
+  border: 4px solid #f6f6ff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
